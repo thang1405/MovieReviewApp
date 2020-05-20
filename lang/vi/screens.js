@@ -20,5 +20,8 @@ export default {
   },
   user:{
     title: 'Tài Khoản'
+  },
+  post:{
+    title: 'Post'
   }
 }

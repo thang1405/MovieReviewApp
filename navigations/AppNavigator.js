@@ -10,6 +10,7 @@ import NotificationScreen from '@screens/app/NotificationScreen'
 import ListScreen from '@screens/app/ListScreen'
 import UserScreen from '@screens/app/UserScreen'
 import DrawerNavigate from '@navigations/DrawerNavigator'
+import PostScreen from '@screens/app/PostScreen'
 
 const App = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'
@@ -60,6 +61,16 @@ const AppNavigator = ({ state }) => {
           component={UserScreen}
           options={{
             title: $t('screens.user.title'),
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon focused={focused} name="md-person" />
+            )
+          }}
+        />
+        <App.Screen
+          name="Post"
+          component={PostScreen}
+          options={{
+            title: $t('screens.post.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-person" />
             )

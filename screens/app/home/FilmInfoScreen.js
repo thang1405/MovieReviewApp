@@ -6,11 +6,6 @@ export default function ListInfoScreen(props) {
   const { route } = props
   return (
     <View style={styles.container}>
-      <MainHeader
-        goBack={() => {
-          props.navigation.goBack()
-        }}
-      />
       <View style={styles.image}>
         {/* <Image source={require('../../import UserScreen from '@screens/app/UserScreen'')}></Image> */}
       </View>

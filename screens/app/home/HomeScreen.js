@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { StyleSheet, View, Text, FlatList, Alert, Platform } from 'react-native'
-import FilmItem from '../../../components/home/FilmItem'
+import { StyleSheet, View, Text, FlatList,TextInput , Alert, Platform } from 'react-native'
+import FilmItem from '@components/home/FilmItem'
+import MainHeader from '@components/MainHeader'
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class HomeScreen extends React.Component {
         {
           id: 1,
           title: 'Joker',
-          imageUrl:'',
+          imageUrl:'@assets/images/robot-dev.png',
           content:"lorem To run the app with live reloading, choose one of",
           comment:100,
           like:100,
@@ -19,7 +20,7 @@ export default class HomeScreen extends React.Component {
         {
           id: 2,
           title: 'Spider-Man 1',
-          imageUrl:'',
+          imageUrl:'@assets/images/robot-prod.png',
           content:"lorem To run the app with live reloading, choose one of",
           comment:100,
           like:100,
@@ -28,7 +29,7 @@ export default class HomeScreen extends React.Component {
         {
           id: 3,
           title: 'Spider-Man 2',
-          imageUrl:'',
+          imageUrl:'@assets/images/robot-dev.png',
           content:"lorem To run the app with live reloading, choose one of",
           comment:100,
           like:100,
@@ -37,7 +38,7 @@ export default class HomeScreen extends React.Component {
         {
           id: 4,
           title: 'Spider-Man 3',
-          imageUrl:'',
+          imageUrl:'@assets/images/robot-dev.png',
           content:"lorem To run the app with live reloading, choose one of",
           comment:100,
           like:100,
@@ -46,7 +47,7 @@ export default class HomeScreen extends React.Component {
         {
           id: 5,
           title: 'Joker',
-          imageUrl:'',
+          imageUrl:'@assets/images/logo-1.png',
           content:"lorem To run the app with live reloading, choose one of",
           comment:100,
           like:100,
@@ -59,8 +60,12 @@ export default class HomeScreen extends React.Component {
   render() {
     const { navigation } = this.props
     const { homeList } = this.state
+
     return (
       <View style={styles.container}>
+        <TextInput
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1,margin:10 ,borderRadius:10}}
+        />
         <FlatList
           data={homeList}
           renderItem={({ item }) => (
@@ -68,8 +73,8 @@ export default class HomeScreen extends React.Component {
               filmItem={item}
               onPress={() => {
                 navigation.navigate({
-                  name: 'FilmInfoScreen',
-                  params: { film: item }
+                  name: 'FilmInfo',
+                  params: { film : item }
                 })
               }}
             />

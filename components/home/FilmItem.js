@@ -3,40 +3,56 @@ import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native'
 export default function listItem(props) {
   const { filmItem, onPress } = props
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
-      <View style={styles.container}>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
+        {/* image film */}
         <View style={styles.image}>
-          {/* <Image source={require('../assets/images/robot-dev.png')}></Image> */}
+          <Image style={styles.img} source={filmItem.imageUrl}/>
         </View>
-        <View style={styles.info}>
-          <Text style={styles.title}>{filmItem.title}</Text>
+        {/* info film */}
+        <View style={styles.content}>
+          <View style={styles.title}>
+            <Text >{filmItem.title}</Text>
+          </View>
+          {/* num like and comment  */}
+          <View style={styles.info}>
+            <Text styles={styles.like}>{filmItem.like} Like</Text>
+            <Text styles={styles.comment}>{filmItem.comment} Comments</Text>
+          </View>
         </View>
-      </View>
     </TouchableOpacity>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    flexDirection: 'column',
+    padding: 15,
     fontSize: 20,
-    padding: 10,
-    borderBottomColor: '#787878',
-    borderBottomWidth: 1,
-    height:80,
-    overflow:'hidden',
   },
   image: {
-    marginTop: 5,
-    flex: 50
+    borderColor: '#787878',
+    borderWidth: 1,
+    borderRadius:5,
+    height:200,
+  },
+  content: {
+    marginTop: 15,
   },
   title: {
-    marginBottom: 10
+    marginBottom: 5,
+    overflow:'hidden',
+    fontSize:30
+  },
+  like:{
+    flex:50
+  },
+  comment:{
+    flex:50
   },
   info: {
-    paddingLeft: 10,
-    flex: 50
+    flexDirection: 'row',
+    flex:1
   },
 })

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "App KidsNow Parent",
-    "slug": "app-kidsnow-parent",
+    "name": "Movie Review App",
+    "slug": "movie-review-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [

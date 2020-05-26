@@ -10,13 +10,13 @@ const HomeNavigator = () => {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    header:()=> null
+
                 }} />
             <Home.Screen
                 name="FilmInfo"
                 component={FilmInfoScreen}
                 options={{
-                    header:()=> null
+
                 }} />
         </Home.Navigator>
     );

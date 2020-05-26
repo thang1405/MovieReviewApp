@@ -36,6 +36,7 @@ const AppNavigator = ({ state }) => {
             tabBarVisible: tabBarStatus
           }}
         />
+        
         <App.Screen
           name="List"
           component={ListScreen}
@@ -43,6 +44,16 @@ const AppNavigator = ({ state }) => {
             title: $t('screens.list.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-list-box" />
+            )
+          }}
+        />
+        <App.Screen
+          name="Post"
+          component={PostScreen}
+          options={{
+            title: $t('screens.post.title'),
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon focused={focused} name="md-add" />
             )
           }}
         />
@@ -66,16 +77,7 @@ const AppNavigator = ({ state }) => {
             )
           }}
         />
-        <App.Screen
-          name="Post"
-          component={PostScreen}
-          options={{
-            title: $t('screens.post.title'),
-            tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="md-person" />
-            )
-          }}
-        />
+        
       </App.Navigator>
     </NavigationContainer>
   )

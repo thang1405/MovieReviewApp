@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text, Button } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, Text, Button, Image } from 'react-native'
 import { connect } from 'react-redux'
 import { setLoading } from '@actions'
 import { TextInput } from 'react-native-gesture-handler'
@@ -8,8 +8,9 @@ const PostScreen = ({ setLoading }) => {
   return (
     <View style={styles.container}>
         <View style={styles.imgPost}>
-            <TouchableOpacity onPress={()=>setLoading(true)}>
-            <Text style={styles.uploadImg}>Upload images or videos</Text>
+            <TouchableOpacity onPress={()=>setLoading(true)} style={styles.flexImage}>
+              <Image source={require('../../assets/icon/add.png')} style={styles.imageAdd}/>
+              <Text style={styles.uploadImg}>Upload images or videos</Text>
             </TouchableOpacity>
         </View>
         <View style={styles.content}>
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
   },
   uploadImg: {
     color: '#FFFFFF',
-    marginTop: 250,
-    fontSize: 15
+    marginTop: 50,
+    fontSize: 15,
 
   },
   content: {
@@ -66,5 +67,13 @@ const styles = StyleSheet.create({
       backgroundColor: '#FF001B',
       fontWeight:'bold',
       color: '#FF001B',
-  }
+  },
+  imageAdd: {
+    // height: 40,
+    // width: 40,
+    marginTop: 120,
+    // zIndex: 2
+    marginLeft: 45
+  },
+  
 })

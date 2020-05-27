@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native'
+
 export default function listItem(props) {
   const { filmItem, onPress } = props
   return (
@@ -7,12 +8,12 @@ export default function listItem(props) {
       <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
         {/* image film */}
         <View style={styles.image}>
-          <Image style={styles.img} source={filmItem.imageUrl}/>
+          <Image source={{ uri: filmItem.imageUrl }} style={styles.img} resizeMode={'cover'}/>
         </View>
         {/* info film */}
         <View style={styles.content}>
           <View style={styles.title}>
-            <Text >{filmItem.title}</Text>
+            <Text>{filmItem.title}</Text>
           </View>
           {/* num like and comment  */}
           <View style={styles.info}>
@@ -20,7 +21,7 @@ export default function listItem(props) {
             <Text styles={styles.comment}>{filmItem.comment} Comments</Text>
           </View>
         </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -34,25 +35,26 @@ const styles = StyleSheet.create({
   image: {
     borderColor: '#787878',
     borderWidth: 1,
-    borderRadius:5,
-    height:200,
+    borderRadius: 5,
+    height: 200,
   },
   content: {
     marginTop: 15,
   },
   title: {
     marginBottom: 5,
-    overflow:'hidden',
-    fontSize:30
+    overflow: 'hidden',
+    fontSize: 30,
   },
-  like:{
-    flex:50
+  like: {
+    flex: 50,
   },
-  comment:{
-    flex:50
+  comment: {
+    flex: 50,
   },
   info: {
     flexDirection: 'row',
-    flex:1
+    justifyContent:'space-between',
+    flex: 1,
   },
 })

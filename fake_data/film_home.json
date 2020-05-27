@@ -1,0 +1,159 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "title": "Joker",
+      "imageUrl": "https://www.popmovee.com/uploads/1/9/6/2/19626163/joker-movie-2019-poster3_orig.jpg",
+      "content": "lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "comments": [
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Spider-Man 1",
+      "imageUrl": "https://image.phimmoi.net/film/445/poster.medium.jpg",
+      "content": "lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "comments": [
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Spider-Man 2",
+      "imageUrl": "https://pm1.narvii.com/6858/bdae80e0a3a74fa3ab0dc313651d13a3c170d217v2_hq.jpg",
+      "content": "lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "comments": [
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Spider-Man 3",
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_UY1200_CR88,0,630,1200_AL_.jpg",
+      "content": "lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "comments": [
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Batman 2 the dark knight",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/vi/2/2d/Poster_phim_K%E1%BB%B5_s%C4%A9_b%C3%B3ng_%C4%91%C3%AAm_2008.jpg",
+      "content": "lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "comments": [
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    }
+  ]
+}

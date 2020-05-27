@@ -1,59 +1,22 @@
 import * as React from 'react'
-import { StyleSheet, View, Text, FlatList,TextInput , Alert, Platform } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  Text,
+  FlatList,
+  TextInput,
+  Alert,
+  Platform,
+} from 'react-native'
 import FilmItem from '@components/home/FilmItem'
-import MainHeader from '@components/MainHeader'
-
+import TabBarIcon from '@components/TabBarIcon'
+import { Ionicons } from '@expo/vector-icons'
+import listHome from '../../../fake_data/film_home.json'
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      homeList: [
-        {
-          id: 1,
-          title: 'Joker',
-          imageUrl:'@assets/images/robot-dev.png',
-          content:"lorem To run the app with live reloading, choose one of",
-          comment:100,
-          like:100,
-          isLike:true
-        },
-        {
-          id: 2,
-          title: 'Spider-Man 1',
-          imageUrl:'@assets/images/robot-prod.png',
-          content:"lorem To run the app with live reloading, choose one of",
-          comment:100,
-          like:100,
-          isLike:true
-        },
-        {
-          id: 3,
-          title: 'Spider-Man 2',
-          imageUrl:'@assets/images/robot-dev.png',
-          content:"lorem To run the app with live reloading, choose one of",
-          comment:100,
-          like:100,
-          isLike:true
-        },
-        {
-          id: 4,
-          title: 'Spider-Man 3',
-          imageUrl:'@assets/images/robot-dev.png',
-          content:"lorem To run the app with live reloading, choose one of",
-          comment:100,
-          like:100,
-          isLike:true
-        },
-        {
-          id: 5,
-          title: 'Joker',
-          imageUrl:'@assets/images/logo-1.png',
-          content:"lorem To run the app with live reloading, choose one of",
-          comment:100,
-          like:100,
-          isLike:true
-        },
-      ]
+      homeList: listHome
     }
   }
 
@@ -63,23 +26,38 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1,margin:10 ,borderRadius:10}}
-        />
+        <View style={styles.searchSection}>
+          <Ionicons
+            style={styles.searchIcon}
+            name="ios-search"
+            size={25}
+            color="white"
+            backgroundColor='gray'
+          />
+          <TextInput
+            style={styles.input}
+            placeholderTextColor="#f1f1f1" 
+            placeholder="Search Movie"
+            onChangeText={(searchString) => {
+              this.setState({ searchString })
+            }}
+            underlineColorAndroid="transparent"
+          />
+        </View>
         <FlatList
-          data={homeList}
+          data={homeList.list}
           renderItem={({ item }) => (
             <FilmItem
               filmItem={item}
               onPress={() => {
                 navigation.navigate({
                   name: 'FilmInfo',
-                  params: { film : item }
+                  params: { film: item },
                 })
               }}
             />
           )}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={(item) => `${item.id}`}
         />
       </View>
     )
@@ -89,6 +67,36 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff'
-  }
+    backgroundColor: '#fff',
+    
+  },
+  searchSection: {
+    margin: 10,
+    marginLeft:15,
+    marginRight:15,
+    borderColor:'black',
+    borderWidth:1,
+    borderRadius:5,
+    paddingLeft:10,
+    paddingRight:15,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gray',
+    
+  },
+  searchIcon: {
+    padding: 10,
+    paddingLeft:3
+  },
+  input: {
+    flex: 1,
+    height:45,
+    paddingTop: 5,
+    paddingRight: 10,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    backgroundColor: 'gray',
+    color: 'white',
+  },
 })

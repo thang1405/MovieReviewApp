@@ -6,9 +6,9 @@ import { NavigationContainer } from '@react-navigation/native'
 import TabBarIcon from '@components/TabBarIcon'
 
 import NotificationScreen from '@screens/app/NotificationScreen'
-import ListScreen from '@screens/app/note/index'
+//import ListScreen from '@screens/app/note/index'
 
-//import ListScreen from '@screens/app/ListScreen'
+import ListScreen from '@screens/app/ListScreen'
 import UserScreen from '@screens/app/UserScreen'
 import DrawerNavigate from '@navigations/DrawerNavigator'
 import HomeScreen from '@screens/app/home/index'

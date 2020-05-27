@@ -6,11 +6,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import TabBarIcon from '@components/TabBarIcon'
 
 import NotificationScreen from '@screens/app/NotificationScreen'
-//import ListScreen from '@screens/app/note/ListScreen'
+//import ListScreen from '@screens/app/note/index'
+
 import ListScreen from '@screens/app/ListScreen'
 import UserScreen from '@screens/app/UserScreen'
 import DrawerNavigate from '@navigations/DrawerNavigator'
-
+import HomeScreen from '@screens/app/home/index'
 const App = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'
 
@@ -26,20 +27,20 @@ const AppNavigator = ({ state }) => {
       >
         <App.Screen
           name="Home"
-          component={DrawerNavigate}
+          component={HomeScreen}
           options={{
-            title: $t('screens.home.title'),
+            //title: $t('screens.home.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="ios-home" />
             ),
-            tabBarVisible: tabBarStatus
+            //tabBarVisible: tabBarStatus
           }}
         />
         <App.Screen
           name="List"
           component={ListScreen}
           options={{
-            title: $t('screens.list.title'),
+            // title: $t('screens.list.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-list-box" />
             )
@@ -49,7 +50,7 @@ const AppNavigator = ({ state }) => {
           name="Notification"
           component={NotificationScreen}
           options={{
-            title: $t('screens.notification.title'),
+            //title: $t('screens.notification.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-notifications" />
             )
@@ -59,7 +60,7 @@ const AppNavigator = ({ state }) => {
           name="User"
           component={UserScreen}
           options={{
-            title: $t('screens.user.title'),
+            //title: $t('screens.user.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-person" />
             )

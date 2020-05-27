@@ -2,10 +2,12 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
 
-import LoginScreen from '@screens/auth/LoginScreen'
+import HomeScreen from '@screens/app/home/index'
+import SignInScreen from '@screens/auth/SignInScreen'
+import SignUpScreen from '@screens/auth/SignUpScreen'
 
 const Auth = createStackNavigator()
-const INITIAL_ROUTE_NAME = 'Login'
+const INITIAL_ROUTE_NAME = 'SignIn'
 
 export default function AuthNavigator() {
   return (
@@ -16,7 +18,10 @@ export default function AuthNavigator() {
           header: () => null
         }}
       >
-        <Auth.Screen name="Login" component={LoginScreen} />
+        
+        <Auth.Screen name="SignIn" component={SignInScreen}/>
+        <Auth.Screen name="SignUp" component={SignUpScreen}/>
+        <Auth.Screen name="Home" component={HomeScreen} />
       </Auth.Navigator>
     </NavigationContainer>
   )

@@ -13,8 +13,8 @@ const AppRoot = ({ state }) => {
   if (!wakeup) {
     return <WakeupScreen />
   }
-  // return !isLogin ? <AuthNavigator /> : <AppNavigator />
-  return <AppNavigator />
+   return !isLogin ? <AuthNavigator /> : <AppNavigator />
+  // return <AppNavigator />
 }
 
 const mapState = state => ({ state })

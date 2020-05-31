@@ -8,7 +8,7 @@ export default function listItem(props) {
       <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
         {/* image film */}
         <View style={styles.image}>
-          <Image source={{ uri: filmItem.imageUrl }} style={styles.img} resizeMode={'cover'}/>
+          <Image source={{ uri: filmItem.imageUrl }}  style={styles.img} resizeMode={'cover'}/>
         </View>
         {/* info film */}
         <View style={styles.content}>
@@ -33,10 +33,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    borderColor: '#787878',
-    borderWidth: 1,
-    borderRadius: 5,
     height: 200,
+  },
+  img:{
+    width: 384, 
+    height: 200,
+    borderRadius:5
   },
   content: {
     marginTop: 15,
@@ -57,4 +59,5 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     flex: 1,
   },
+  
 })

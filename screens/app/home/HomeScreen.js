@@ -9,7 +9,6 @@ import {
   Platform,
 } from 'react-native'
 import FilmItem from '@components/home/FilmItem'
-import TabBarIcon from '@components/TabBarIcon'
 import { Ionicons } from '@expo/vector-icons'
 import listHome from '../../../fake_data/film_home.json'
 export default class HomeScreen extends React.Component {

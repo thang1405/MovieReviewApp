@@ -6,6 +6,8 @@ import {
   Image,
   TextInput,
   FlatList,
+  ImageBackground,
+  ScrollView
 } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import CommentItem from '../../../components/home/CommentItem'
@@ -13,9 +15,11 @@ import CommentItem from '../../../components/home/CommentItem'
 export default function ListInfoScreen(props) {
   const { route } = props
   return (
+    <ScrollView>
     <View style={styles.container}>
       <View style={styles.image}>
-        <Image
+        <ImageBackground
+          style ={styles.img}
           source={{ uri: route.params.film.imageUrl }}
           resizeMode={'cover'}
         />
@@ -27,20 +31,20 @@ export default function ListInfoScreen(props) {
           {/* num like and comment  */}
         </View>
         <View style={styles.comment_list}>
-          <View styles={styles.like}>
+          <View style={styles.like}>
             <View>
               <Ionicons
                 name="md-text"
                 size={25}
-                color="blue"
+                color='#0b0b0b'
                 backgroundColor="white"
               />
             </View>
             <View>
-              <Text>{route.params.film.comment} Comment</Text>
+              <Text style={styles.commentText}>{route.params.film.comment} Comment</Text>
             </View>
           </View>
-          <View styles={styles.comment}>
+          <View style={styles.comment}>
             <View>
               <Ionicons
                 name="ios-heart-empty"
@@ -50,23 +54,19 @@ export default function ListInfoScreen(props) {
               />
             </View>
             <View>
-              <Text>{route.params.film.like} Like</Text>
+              <Text style={styles.likeText}>{route.params.film.like} Like</Text>
             </View>
           </View>
         </View>
-        <FlatList
-          data={route.params.film.comments}
-          renderItem={({ item }) => <CommentItem CommentItem={item} />}
-          // keyExtractor={(item) => `${item.id}`}
-        />
         <View style={styles.searchSection}>
           <TextInput
             style={styles.input}
             placeholderTextColor="#f1f1f1"
             placeholder="Enter your comment"
-            onChangeText={(searchString) => {
-              this.setState({ searchString })
-            }}
+            // multiline numberOfLines={}
+            // onChangeText={(searchString) => {
+            //   this.setState({ searchString })
+            // }}
             underlineColorAndroid="transparent"
           />
           <Ionicons
@@ -77,8 +77,15 @@ export default function ListInfoScreen(props) {
             backgroundColor="gray"
           />
         </View>
+        <FlatList
+          data={route.params.film.comments}
+          renderItem={({ item }) => <CommentItem CommentItem={item} />}
+           keyExtractor={(item) => `${route.params.film.title} ${item.name}`}
+        />
+        
       </View>
     </View>
+    </ScrollView>
   )
 }
 
@@ -89,16 +96,23 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    flex:30,
-    height: 200,
+    flex:46,
+    height:300,
+  },
+  img:{
+    width:414,
+    height:400,
+    borderTopRightRadius:5,
+    borderTopLeftRadius:5,
   },
   bottom:{
     padding: 10,
-    flex:70,
-    borderColor:'black',
+    flex:54,
+    borderColor:'#F1f1f1',
     borderWidth:1,
     borderTopLeftRadius:10,
-    borderTopRightRadius:10
+    borderTopRightRadius:10,
+    backgroundColor:"#fff"
   },
   infomation: {
     maxHeight: 150,
@@ -110,14 +124,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingLeft: 20,
+    marginTop:15,
     borderBottomWidth: 1,
-    borderBottomColor: 'black',
+    borderBottomColor: '#f1f1f1',
   },
   like: {
     flexDirection: 'row',
   },
+  likeText:{
+    marginLeft:10,
+    marginTop:4
+  },
   comment: {
     flexDirection: 'row',
+  },
+  commentText:{
+    marginLeft:10,
+    marginTop:4
   },
   searchSection: {
     margin: 10,
@@ -132,6 +155,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'gray',
+    bottom:0
   },
   searchIcon: {
     padding: 10,
@@ -146,5 +170,6 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     backgroundColor: 'gray',
     color: 'white',
+    maxHeight:120,
   },
 })

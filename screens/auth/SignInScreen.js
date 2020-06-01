@@ -11,86 +11,92 @@ import {
 } from 'react-native'
 
 import bgImage from '@assets/images/background.png'
+import { connect } from 'react-redux'
+import { setAuth } from '@actions'
 
-export default class SignIn extends React.Component {
-  render() {
-    const { navigation } = this.props
-    return (
-      <ImageBackground source={bgImage} style={styles.backgroundContainer}>
-        <View style={styles.header}>
-          <Text style={styles.logo}>Sign in</Text>
+const SignInScreen = ({ setAuth }) => {
+  const testLogin = () => {
+    setAuth({ token: 'abc' })
+  }
+  //const { navigation } = this.props
+  return (
+    <ImageBackground source={bgImage} style={styles.backgroundContainer}>
+      <View style={styles.header}>
+        <Text style={styles.logo}>Sign in</Text>
+      </View>
+
+      <View style={styles.box}>
+        <View stype={styles.inputView}>
+          <Text style={styles.textScreen}>User name</Text>
+          <TextInput
+            style={styles.input}
+            placeholder={'Enter your user name'}
+            placeholderTextColor={'white'}
+            keyboardType="email-address"
+            underlineColorAndroid="transparent"
+            returnKeyType="next"
+            //onSubmitEditing={() => this.refs.txPassword.focus()}
+          />
         </View>
 
-        <View style={styles.box}>
-          <View stype={styles.inputView}>
-            <Text style={styles.textScreen}>User name</Text>
-            <TextInput
-              style={styles.input}
-              placeholder={'Enter your user name'}
-              placeholderTextColor={'white'}
-              keyboardType="email-address"
-              underlineColorAndroid="transparent"
-              returnKeyType="next"
-              onSubmitEditing={() => this.refs.txPassword.focus()}
-            />
-          </View>
+        <View stype={styles.inputView}>
+          <Text style={styles.textScreen}>Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder={'Enter your password'}
+            placeholderTextColor={'white'}
+            secureTextEntry={true}
+            underlineColorAndroid="transparent"
+            //ref={'txPassword'}
+          />
+        </View>
 
-          <View stype={styles.inputView}>
-            <Text style={styles.textScreen}>Password</Text>
-            <TextInput
-              style={styles.input}
-              placeholder={'Enter your password'}
-              placeholderTextColor={'white'}
-              secureTextEntry={true}
-              underlineColorAndroid="transparent"
-              ref={'txPassword'}
-            />
-          </View>
+        <TouchableOpacity>
+          <Text style={styles.forgot}>Forgot Password?</Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text style={styles.forgot}>Forgot Password?</Text>
+        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity
+            onPress={testLogin}
+            style={[styles.loginBtn, { backgroundColor: '#fb5b5a' }]}
+          >
+            <Text style={styles.loginText}>Sign in</Text>
           </TouchableOpacity>
 
-          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('Home')}
-              style={[styles.loginBtn, { backgroundColor: '#fb5b5a' }]}
-            >
-              <Text style={styles.loginText}>Sign in</Text>
-            </TouchableOpacity>
+          <Text
+            style={[styles.loginText, { fontSize: 14, textAlign: 'center' }]}
+          >
+            or
+          </Text>
 
-            <Text
-              style={[styles.loginText, { fontSize: 14, textAlign: 'center' }]}
-            >
-              or
-            </Text>
-
-            <TouchableOpacity
-              style={[styles.loginBtn, { backgroundColor: 'white' }]}
-            >
-              <View style={{ flexDirection: 'row' }}>
-                <Image
-                  source={require('@assets/images/iconfb.png')}
-                  style={{ width: 20, height: 20, marginHorizontal: 10 }}
-                ></Image>
-                <Text style={{ color: 'blue' }}>with Facebook</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.footer}>
-            <Text style={styles.loginText}>Don't have an account?</Text>
-
-            <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
-              <Text style={{ marginLeft: 40, color: '#FF0000' }}>Sign up</Text>
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={[styles.loginBtn, { backgroundColor: 'white' }]}
+          >
+            <View style={{ flexDirection: 'row' }}>
+              <Image
+                source={require('@assets/images/iconfb.png')}
+                style={{ width: 20, height: 20, marginHorizontal: 10 }}
+              ></Image>
+              <Text style={{ color: 'blue' }}>with Facebook</Text>
+            </View>
+          </TouchableOpacity>
         </View>
-      </ImageBackground>
-    )
-    //}
-  }
+
+        <View style={styles.footer}>
+          <Text style={styles.loginText}>Don't have an account?</Text>
+
+          <TouchableOpacity
+          //  onPress={() => navigation.navigate('SignUp')}
+          >
+            <Text style={{ marginLeft: 40, color: '#FF0000' }}>Sign up</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ImageBackground>
+  )
+  //}
 }
+export default connect(null, { setAuth })(SignInScreen)
 
 const styles = StyleSheet.create({
   backgroundContainer: {

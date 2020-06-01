@@ -13,10 +13,10 @@ export default function CommentItem(props) {
 
 const styles = StyleSheet.create({
   container: {
-    
-    maxHeight: 100,
+    height:80,
+    maxHeight: 150,
     overflow: 'hidden',
-    borderBottomColor:"#000",
+    borderBottomColor:"#f1f1f1",
     borderBottomWidth:1,
     padding:10
   },

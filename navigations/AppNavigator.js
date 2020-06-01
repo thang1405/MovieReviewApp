@@ -5,12 +5,11 @@ import { NavigationContainer } from '@react-navigation/native'
 
 import TabBarIcon from '@components/TabBarIcon'
 
-import NotificationScreen from '@screens/app/NotificationScreen'
+import NotificationScreen from '@screens/app/noti/index'
 //import ListScreen from '@screens/app/note/index'
 
 import ListScreen from '@screens/app/ListScreen'
 import UserScreen from '@screens/app/UserScreen'
-import DrawerNavigate from '@navigations/DrawerNavigator'
 import HomeScreen from '@screens/app/home/index'
 const App = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'
@@ -24,12 +23,21 @@ const AppNavigator = ({ state }) => {
         screenOptions={{
           header:() => null
         }}
+        tabBarOptions={{
+          inactiveBackgroundColor:'#000',
+          activeBackgroundColor:'#000',
+          style:{
+            backgroundColor:'#000',
+            borderRadius:10,
+          },
+          showLabel:false
+        }}
       >
         <App.Screen
           name="Home"
           component={HomeScreen}
           options={{
-            //title: $t('screens.home.title'),
+            title: 'Home',
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="ios-home" />
             ),
@@ -40,7 +48,7 @@ const AppNavigator = ({ state }) => {
           name="List"
           component={ListScreen}
           options={{
-            // title: $t('screens.list.title'),
+            title: 'Favorites list',
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-list-box" />
             )
@@ -50,7 +58,7 @@ const AppNavigator = ({ state }) => {
           name="Notification"
           component={NotificationScreen}
           options={{
-            //title: $t('screens.notification.title'),
+            title: 'Notification',
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-notifications" />
             )

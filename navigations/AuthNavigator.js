@@ -21,7 +21,6 @@ export default function AuthNavigator() {
         
         <Auth.Screen name="SignIn" component={SignInScreen}/>
         <Auth.Screen name="SignUp" component={SignUpScreen}/>
-        <Auth.Screen name="Home" component={HomeScreen} />
       </Auth.Navigator>
     </NavigationContainer>
   )

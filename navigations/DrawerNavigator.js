@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { setTabBarVisit } from '@actions/index'
 
-import HomeScreen from '@screens/app/HomeScreen'
+import HomeScreen from '@screens/app/home/index'
 import ProfileScreen from '@screens/app/ProfileScreen'
 import { useFocusEffect } from '@react-navigation/native';
 

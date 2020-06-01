@@ -31,20 +31,20 @@ export default function ListInfoScreen(props) {
           {/* num like and comment  */}
         </View>
         <View style={styles.comment_list}>
-          <View styles={styles.like}>
+          <View style={styles.like}>
             <View>
               <Ionicons
                 name="md-text"
                 size={25}
-                color="blue"
+                color='#0b0b0b'
                 backgroundColor="white"
               />
             </View>
             <View>
-              <Text>{route.params.film.comment} Comment</Text>
+              <Text style={styles.commentText}>{route.params.film.comment} Comment</Text>
             </View>
           </View>
-          <View styles={styles.comment}>
+          <View style={styles.comment}>
             <View>
               <Ionicons
                 name="ios-heart-empty"
@@ -54,7 +54,7 @@ export default function ListInfoScreen(props) {
               />
             </View>
             <View>
-              <Text>{route.params.film.like} Like</Text>
+              <Text style={styles.likeText}>{route.params.film.like} Like</Text>
             </View>
           </View>
         </View>
@@ -124,14 +124,23 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingLeft: 20,
+    marginTop:15,
     borderBottomWidth: 1,
     borderBottomColor: '#f1f1f1',
   },
   like: {
     flexDirection: 'row',
   },
+  likeText:{
+    marginLeft:10,
+    marginTop:4
+  },
   comment: {
     flexDirection: 'row',
+  },
+  commentText:{
+    marginLeft:10,
+    marginTop:4
   },
   searchSection: {
     margin: 10,

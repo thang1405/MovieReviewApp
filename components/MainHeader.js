@@ -29,13 +29,15 @@ const MainHeader = props => {
   )
   return (
     <Header
+      placement="left"
       leftComponent={
         leftComponent || goBack
           ? {
               icon: 'keyboard-arrow-left',
               size: 25,
               color: Colors.white,
-              onPress: goBack
+              onPress: goBack,
+
             }
           : null
       }
@@ -47,7 +49,7 @@ const MainHeader = props => {
               style: titleStyle || local_styles.title
             }
       }
-      backgroundColor={Colors.primary}
+      backgroundColor={'#0B0B0B'}
       rightComponent={hasAvatar ? headerAvatar : null}
     />
   )
@@ -56,7 +58,11 @@ const local_styles = StyleSheet.create({
   title: {
     color: Colors.white,
     fontWeight: '100',
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  titleStyle: {
+    borderColor:'#000',
   }
 })
 export default MainHeader

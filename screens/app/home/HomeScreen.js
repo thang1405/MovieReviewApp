@@ -18,7 +18,9 @@ export default class HomeScreen extends React.Component {
       homeList: listHome
     }
   }
-
+  static navigationOptions = {
+    headerStyle: { marginTop: 24 },
+  }
   render() {
     const { navigation } = this.props
     const { homeList } = this.state
@@ -37,9 +39,9 @@ export default class HomeScreen extends React.Component {
             style={styles.input}
             placeholderTextColor="#f1f1f1" 
             placeholder="Search Movie"
-            onChangeText={(searchString) => {
-              this.setState({ searchString })
-            }}
+            // onChangeText={(searchString) => {
+            //   this.setState({ searchString })
+            // }}
             underlineColorAndroid="transparent"
           />
         </View>
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0b0b0b',
-    
+    // marginTop:Platform.OS === 'ios' ? 34:0
   },
   searchSection: {
     margin: 10,
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'gray',
+    backgroundColor: '#898989',
     
   },
   searchIcon: {
@@ -95,7 +97,8 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingBottom: 5,
     paddingLeft: 5,
-    backgroundColor: 'gray',
+    backgroundColor: '#898989',
     color: 'white',
+    fontSize:17
   },
 })

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { StyleSheet, View, Text, FlatList, Alert, Platform } from 'react-native'
-import ListNoti from '../../../components/notification/ListNoti'
+import ListNoti from '@components/notification/ListNoti'
 
 export default class NotificationScreen extends React.Component {
   constructor(props) {
@@ -9,26 +9,29 @@ export default class NotificationScreen extends React.Component {
       List: [
         {
           id: 1,
-          content: 'Thông báo 1 ',
-          created_at: '2020-03-05 09:40:50',
+          content: 'Diệp Tu đã comment bài viết của bạn',
+          created_at: '2020-03-06 09:40:50',
         },
         {
           id: 2,
-          content: 'Thông báo ',
-          created_at: '2020-03-05 19:40:50',
+          content: 'Quân Mạc Tiếu đã comment bài viết của bạn ',
+          created_at: '2020-03-07 19:40:50',
         },
         {
           id: 3,
-          content: 'Thông báo ',
-          created_at: '2020-03-05 08:40:50',
+          content: 'Nhất Diệp Chi Thu đã comment bài viết của bạn  ',
+          created_at: '2020-03-08 08:40:50',
         },
-        
+        {
+          id: 4,
+          content: 'Thắng Neel đã comment bài viết của bạn',
+          created_at: '2020-03-09 09:40:50',
+        },
       ]
     }
   }
 
   render() {
-    const { navigation } = this.props
     const { List } = this.state
     return (
       <View style={styles.container}>
@@ -37,12 +40,6 @@ export default class NotificationScreen extends React.Component {
           renderItem={({ item }) => (
             <ListNoti
               listNoti={item}
-              onPress={() => {
-                navigation.navigate({
-                  name: 'Item',
-                  params: { info: item }
-                })
-              }}
             />
           )}
           keyExtractor={item => `${item.id}`}

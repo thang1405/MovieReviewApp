@@ -1,16 +1,17 @@
 import React from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 
 import TabBarIcon from '@components/TabBarIcon'
-
-import NotificationScreen from '@screens/app/noti/index'
-//import ListScreen from '@screens/app/note/index'
+import TabBarAnt from '@components/TabBarAnt'
+import NotificationScreen from '@screens/app/notifications/index'
 
 import ListScreen from '@screens/app/ListScreen'
 import UserScreen from '@screens/app/UserScreen'
 import HomeScreen from '@screens/app/home/index'
+import PostScreen from '@screens/app/PostScreen'
+
 const App = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = 'Home'
 
@@ -21,16 +22,12 @@ const AppNavigator = ({ state }) => {
       <App.Navigator
         initialRouteName={INITIAL_ROUTE_NAME}
         screenOptions={{
-          header:() => null
+          header: () => null,
         }}
         tabBarOptions={{
-          inactiveBackgroundColor:'#000',
-          activeBackgroundColor:'#000',
-          style:{
-            backgroundColor:'#000',
-            borderRadius:10,
-          },
-          showLabel:false
+          inactiveBackgroundColor: '#000',
+          activeBackgroundColor: '#000',
+          showLabel: false,
         }}
       >
         <App.Screen
@@ -39,9 +36,42 @@ const AppNavigator = ({ state }) => {
           options={{
             title: 'Home',
             tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="ios-home" />
+              <TabBarAnt focused={focused} name="home" />
             ),
-            //tabBarVisible: tabBarStatus
+            // tabBarVisible: tabBarStatus
+          }}
+        />
+
+        <App.Screen
+          name="Notification"
+          component={NotificationScreen}
+          options={{
+            title: 'Notification',
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon focused={focused} name="md-notifications" />
+            ),
+            
+          }}
+        />
+        <App.Screen
+          name="Post"
+          component={PostScreen}
+          options={{
+            title: 'Post',
+            tabBarIcon: ({ focused }) => (
+              <TabBarAnt focused={focused} name="pluscircle" />
+            ),
+          }}
+        />
+
+        <App.Screen
+          name="User"
+          component={UserScreen}
+          options={{
+            //title: $t('screens.user.title'),
+            tabBarIcon: ({ focused }) => (
+              <TabBarIcon focused={focused} name="md-person" />
+            ),
           }}
         />
         <App.Screen
@@ -50,33 +80,13 @@ const AppNavigator = ({ state }) => {
           options={{
             title: 'Favorites list',
             tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="md-list-box" />
-            )
-          }}
-        />
-        <App.Screen
-          name="Notification"
-          component={NotificationScreen}
-          options={{
-            title: 'Notification',
-            tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="md-notifications" />
-            )
-          }}
-        />
-        <App.Screen
-          name="User"
-          component={UserScreen}
-          options={{
-            //title: $t('screens.user.title'),
-            tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="md-person" />
-            )
+              <TabBarIcon focused={focused} name="ios-heart-empty" />
+            ),
           }}
         />
       </App.Navigator>
     </NavigationContainer>
   )
 }
-const mapState = state => ({ state })
+const mapState = (state) => ({ state })
 export default connect(mapState, null)(AppNavigator)

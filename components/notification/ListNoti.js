@@ -10,7 +10,7 @@ export default function ListNoti(props) {
       <View style={styles.container}>
         <View style={styles.info}>
           <View style={styles.infoContent}>
-            <View style={styles.content}><Text ellipsizeMode='tail' numberOfLines={1} style={styles.textContent}>{listNoti.content}</Text></View>
+            <View style={styles.content}><Text ellipsizeMode='tail' numberOfLines={2} style={styles.textContent}>{listNoti.content}</Text></View>
             <View style={styles.timebox}><Text style={styles.date}>{time.format('DD/MM/YYYY')}</Text></View>
           </View>
         </View>
@@ -23,13 +23,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
-    fontSize: 20,
     padding: 10,
     borderBottomColor: '#3B3839',
     borderBottomWidth: 1,
-    height:55,
     overflow:'hidden',
-    color: '#fff'
+    color: '#fff',
+    marginLeft:10,
+    marginRight:10,
+    paddingBottom:15
   },
   info: {
     paddingLeft: 10,

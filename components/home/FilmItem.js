@@ -1,6 +1,15 @@
 import * as React from 'react'
-import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+import {
+  StyleSheet,
+  View,
+  Image,
+  TouchableOpacity,
+  Text,
+  ImageBackground,
+} from 'react-native'
+import { MaterialCommunityIcons, Feather, Ionicons } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
+import Colors from '@constants/Colors'
 
 export default function listItem(props) {
   const { filmItem, onPress } = props
@@ -8,13 +17,20 @@ export default function listItem(props) {
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
         {/* image film */}
-        <View style={styles.image}>
-          <Image
-            source={{ uri: filmItem.imageUrl }}
-            style={styles.img}
-            resizeMode={'cover'}
-          />
-        </View>
+        <ImageBackground
+          source={{ uri: filmItem.imageUrl }}
+          style={styles.img}
+          imageStyle={{ borderRadius: 5 }}
+          resizeMode={'cover'}
+        >
+          <View style={styles.imageIcon}>
+            <AntDesign
+              name={filmItem.isFavorite ? 'heart' : 'hearto'}
+              size={24}
+              color={filmItem.isFavorite ? Colors.red : Colors.white}
+            />
+          </View>
+        </ImageBackground>
         {/* info film */}
         <View style={styles.content}>
           <View style={styles.title}>
@@ -24,12 +40,12 @@ export default function listItem(props) {
           <View style={styles.info}>
             <View style={styles.like}>
               <View>
-                <Ionicons
-                  name="ios-heart-empty"
-                  size={25}
-                  color="#fff"
-                  backgroundColor="white"
-                />
+              <AntDesign
+              name='hearto'
+              size={20}
+              color="#f1f1f1"
+              backgroundColor="white"
+            />
               </View>
               <View>
                 <Text style={styles.likeText}>{filmItem.like} Like</Text>
@@ -37,21 +53,20 @@ export default function listItem(props) {
             </View>
 
             <View style={styles.comment}>
-            <View >
-              <Ionicons
-                name="md-text"
-                size={25}
-                color="#fff"
-                backgroundColor="white"
-              />
+              <View>
+                <MaterialCommunityIcons
+                  name="comment-text-outline"
+                  size={24}
+                  color="#f1f1f1"
+                  backgroundColor="white"
+                />
+              </View>
+              <View>
+                <Text style={styles.commentText}>
+                  {filmItem.comment} Comments
+                </Text>
+              </View>
             </View>
-            <View>
-              <Text style={styles.commentText}>
-                {filmItem.comment} Comments
-              </Text>
-            </View>
-            </View>
-            
           </View>
         </View>
       </TouchableOpacity>
@@ -65,8 +80,11 @@ const styles = StyleSheet.create({
     padding: 15,
     backgroundColor: '#0B0B0B',
   },
-  image: {
-    height: 200,
+  imageIcon: {
+    flexDirection:'row',
+    justifyContent:'flex-end',
+    paddingRight:10,
+    paddingTop:5
   },
   img: {
     width: 384,
@@ -87,7 +105,7 @@ const styles = StyleSheet.create({
   },
   info: {
     flexDirection: 'row',
-    justifyContent:'space-between',
+    justifyContent: 'space-between',
     flex: 1,
   },
   like: {

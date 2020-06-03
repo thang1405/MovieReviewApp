@@ -1,0 +1,273 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "title": "Joker",
+      "imageUrl": "https://img5.goodfon.com/wallpaper/nbig/c/b9/joaquin-phoenix-khoakin-feniks-dzhoker-dzhoker-2019-joker-20.jpg",
+      "content": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "isFavorite":true,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934 ",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of "
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app "
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Spider-Man 1",
+      "imageUrl": "https://cutewallpaper.org/21/spider-man-2-wallpaper/Spider-Man-2-Wallpaper-16-1920-X-1080-stmed.net.jpg",
+      "content": "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.",
+      "comment": 200,
+      "like": 100,
+      "isLike": false,
+      "isFavorite":true,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Spider-Man 2",
+      "imageUrl": "https://img.hebus.com/hebus_2004/07/25/preview/040725230705_96.jpg",
+      "content": "Spider-Man/Peter Parker struggles between his personal life which involves Mary Jane Watson and his superhero life where he joins up with a vigilante known as Black Cat battling a series of foes including the mad Doc Ock.",
+      "comment": 200,
+      "like": 100,
+      "isLike": false,
+      "isFavorite":true,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of "
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Spider-Man 3",
+      "imageUrl": "https://img.hebus.com/hebus_2007/03/07/preview/070307200541_19.jpg",
+      "content": "Spider-Man is back to save the city with his usual hero work, only this time he bonds with an alien substance known as symbiote which turns his hero days and personal life into something ugly.",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "isFavorite":true,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Spider-Man: Into the Spider-Verse ",
+      "imageUrl": "https://images8.alphacoders.com/929/thumb-1920-929202.jpg",
+      "content": "Teen Miles Morales becomes Spider-Man of his reality, crossing his path with five counterparts from other dimensions to stop a threat for all realities.",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "isFavorite":true,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Batman 2 the dark knight",
+      "imageUrl": "https://wallpapercave.com/wp/c3ZrBe2.jpg",
+      "content": "lorem To run the app with live reloading, choose one of",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "isFavorite":false,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Spider-Man: Homecoming",
+      "imageUrl": "https://images8.alphacoders.com/815/thumb-1920-815755.jpg",
+      "content": "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.",
+      "comment": 200,
+      "like": 100,
+      "isLike": true,
+      "isFavorite":false,
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay ,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "content": "film cực hay,lorem To run the app with live reloading, choose one of"
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film không hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    }
+  ],
+  "user":{
+    "username":"Quân Mạc Tiếu",
+    "email":"dieptu@gmail.com",
+    "avatar":"https://images8.alphacoders.com/929/thumb-1920-929202.jpg"
+  }
+}

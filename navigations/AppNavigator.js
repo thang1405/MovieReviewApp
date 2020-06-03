@@ -7,8 +7,8 @@ import TabBarIcon from '@components/TabBarIcon'
 import TabBarAnt from '@components/TabBarAnt'
 import NotificationScreen from '@screens/app/notifications/index'
 
-import ListScreen from '@screens/app/ListScreen'
-import UserScreen from '@screens/app/UserScreen'
+import ListScreen from '@screens/app/listFavorite/index'
+import ProfileScreen from '@screens/app/profile/index'
 import HomeScreen from '@screens/app/home/index'
 import PostScreen from '@screens/app/PostScreen'
 
@@ -65,8 +65,8 @@ const AppNavigator = ({ state }) => {
         />
 
         <App.Screen
-          name="User"
-          component={UserScreen}
+          name="Profile"
+          component={ProfileScreen}
           options={{
             //title: $t('screens.user.title'),
             tabBarIcon: ({ focused }) => (

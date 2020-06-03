@@ -77,8 +77,9 @@ export default function listItem(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
-    backgroundColor: '#0B0B0B',
+    margin: 15,
+    backgroundColor: '#0b0b0b',
+    borderRadius: 5,
   },
   imageIcon: {
     flexDirection:'row',
@@ -89,10 +90,13 @@ const styles = StyleSheet.create({
   img: {
     width: 384,
     height: 200,
-    borderRadius: 5,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
   },
   content: {
     marginTop: 15,
+    marginLeft:10,
+    paddingBottom:10
   },
 
   title: {

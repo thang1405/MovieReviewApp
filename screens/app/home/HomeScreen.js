@@ -18,9 +18,6 @@ export default class HomeScreen extends React.Component {
       homeList: listHome
     }
   }
-  static navigationOptions = {
-    headerStyle: { marginTop: 24 },
-  }
   render() {
     const { navigation } = this.props
     const { homeList } = this.state
@@ -68,14 +65,14 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0b0b0b',
+    backgroundColor: '#111111',
     // marginTop:Platform.OS === 'ios' ? 34:0
   },
   searchSection: {
     margin: 10,
     marginLeft:15,
     marginRight:15,
-    borderColor:'black',
+    borderColor:'#212121',
     borderWidth:1,
     borderRadius:5,
     paddingLeft:10,
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#898989',
+    backgroundColor: '#212121',
     
   },
   searchIcon: {
@@ -97,7 +94,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingBottom: 5,
     paddingLeft: 5,
-    backgroundColor: '#898989',
+    backgroundColor: '#212121',
     color: 'white',
     fontSize:17
   },

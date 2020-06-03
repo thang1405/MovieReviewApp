@@ -122,7 +122,7 @@
       "comment": 200,
       "like": 100,
       "isLike": true,
-      "isFavorite":false,
+      "isFavorite":true,
       "comments": [
         {
           "name": "Quân Mạc Tiếu",
@@ -154,13 +154,13 @@
     },
     {
       "id": 5,
-      "title": "Spider-Man: Into the Spider-Verse",
+      "title": "Spider-Man: Into the Spider-Verse ",
       "imageUrl": "https://images8.alphacoders.com/929/thumb-1920-929202.jpg",
       "content": "Teen Miles Morales becomes Spider-Man of his reality, crossing his path with five counterparts from other dimensions to stop a threat for all realities.",
       "comment": 200,
       "like": 100,
       "isLike": true,
-      "isFavorite":false,
+      "isFavorite":true,
       "comments": [
         {
           "name": "Quân Mạc Tiếu",
@@ -198,7 +198,7 @@
       "comment": 200,
       "like": 100,
       "isLike": true,
-      "isFavorite":true,
+      "isFavorite":false,
       "comments": [
         {
           "name": "Quân Mạc Tiếu",
@@ -235,6 +235,7 @@
       "comment": 200,
       "like": 100,
       "isLike": true,
+      "isFavorite":false,
       "comments": [
         {
           "name": "Quân Mạc Tiếu",
@@ -263,5 +264,10 @@
         }
       ]
     }
-  ]
+  ],
+  "user":{
+    "username":"Quân Mạc Tiếu",
+    "email":"dieptu@gmail.com",
+    "avatar":"https://images8.alphacoders.com/929/thumb-1920-929202.jpg"
+  }
 }

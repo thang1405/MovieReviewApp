@@ -32,14 +32,14 @@ const HomeNavigator = () => {
           headerBackTitleVisible: false,
           headerTitle: null,
           headerTransparent: true,//hidden header but show left and right component
-          // headerRight: () => (
-          //   <AntDesign
-          //     name="hearto"
-          //     size={24}
-          //     color="red"
-          //     onPress={() => alert('OK!!!!')}
-          //   />
-          // ),
+          headerRight: () => (
+            <AntDesign
+              name="heart"
+              size={24}
+              color="red"
+              onPress={() => alert('OK!!!!')}
+            />
+          ),
           headerRightContainerStyle: {
             paddingRight:20
           },

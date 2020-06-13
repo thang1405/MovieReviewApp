@@ -1,0 +1,116 @@
+{
+  "posts":[
+    {
+      "id":1,
+      "category":"Phân tích",
+      "title":"Khi Chúng Ta Chọn Những Tập Đoàn Lớn Thay Vì Con Người, Thế Giới Sẽ Tan Hoang Như Trong Wall-E",
+      "imageUrl":"https://phephim.vn/wp-content/uploads/2020/06/9d67bee6edf5f76e1357fd98ad2d27f0.jpg",
+      "author":"Quân Mạc Tiếu",
+      "comment":20,
+      "content":"Tương lai: Trong thế giới của Wall-E, tất cả những gì chúng ta để lại cho trái đất chỉ là rác thải. 30 phút đầu tiên của bộ phim, tương đương với một phần ba thời lượng là một trong những cảnh phim hay nhất mà Pixar từng sản xuất: không ồn ào, không vội vã, người xem được giới thiệu bởi một chú người máy dọn rác đáng yêu tên là Wall-E về một trái đất giờ đây đã hoang tàn. Khán giả dần dần nhận ra điều gì đã xảy ra khi cùng đi với Wall-E qua những thành phố ma, và nhìn chú rô – bốt bé nhỏ ấy nhặt nhạnh từng thứ vụn vặt mà loài người đã bỏ lại sau lưng. Giờ đây, chúng ta mới nhận ra rằng  những thứ rác thải kia bắt nguồn từ chính sự phát triển quá nhanh của loài người. Những mảnh đất màu mỡ ngày nào giờ đã trở thành đất chết, và những tòa nhà chọc trời giờ đây cũng đã bị thay thế bằng những công trình rác to tương tự. ",
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934 ",
+          "content": "phân tích hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "phân tích hay ,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of "
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay,lorem To run the app "
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "tôi thấy hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id":2,
+      "title":"Giới Thiệu Series Phim: The Boys",
+      "category":"Âu mỹ",
+      "imageUrl":"https://phephim.vn/wp-content/uploads/2020/05/The-Boys-Season-2-The-Buzz-Paper-1-1280x720-1.jpg",
+      "author":"Quân Mạc Tiếu",
+      "comment":20,
+      "content":"Chuyện gì sẽ xảy ra nếu một ngày các siêu anh hùng lạm dụng chính sức mạnh của họ để tranh giành quyền lực và chi phối xã hội? Người ta sẽ phản ứng thế nào khi biết những kẻ mặc áo choàng mang danh “người bảo hộ” kia thực chất lại là những tên tội phạm kinh khủng nhất? Nếu viễn cảnh trên phần nào đen tối trên làm bạn thấy tò mò và thích thú thì chắc chắn Series phim The Boys là lựa chọn đúng đắn cho bạn.",
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934 ",
+          "content": "phân tích hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "phân tích hay ,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of "
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay,lorem To run the app "
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "tôi thấy hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    },
+    {
+      "id":3,
+      "category":"Tin tức",
+      "comment":20,
+      "title":"Review Phim “Capone”",
+      "imageUrl":"https://phephim.vn/wp-content/uploads/2020/05/capone-review.jpg",
+      "author":"Quân Mạc Tiếu",
+      "content":"Câu chuyện kể về những ngày cuối đời của trùm tội phạm Hoa Kỳ khét tiếng Al Capone đã không được như mong đợi. Bắt đầu được thông báo lên kế hoạch vào năm 2016, bộ phim tiểu sử “Capone” của đạo diễn Josh Trank (cũng được biết đến với cái tên “Fonzo”) cuối cùng đã được ra mắt khán giả. Dự án này đánh dấu sự trở lại đầy tiềm năng của nhà làm phim người Mỹ khi mà bộ phim năm 2015 trước đó của anh là “Bộ Tứ siêu đẳng” mặc dù đã làm mưa làm gió tại các phòng vé nhưng lại bị giới phê bình chỉ trích thảm hại. Việc “Bộ tứ siêu đẳng” không được xuất sắc phần nào là do những rào cản nhất định từ phía hãng sản xuất phim, vậy nên độc giả rất mong chờ xem liệu Trank có thể làm được như những gì anh đã hứa khi được độc lập sản xuất một bộ phim kịch tính về chủ đề tội phạm. Thật đáng buồn là Trank đã không thành công.",
+      "comments": [
+        {
+          "name": "Quân Mạc Tiếu",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934 ",
+          "content": "phân tích hay"
+        },
+        {
+          "name": "Nguyễn Văn A2",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "phân tích hay ,lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of lorem To run the app with live reloading, choose one of "
+        },
+        {
+          "name": "Nguyễn Văn A3",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "không hay,lorem To run the app with live reloading, choose one of"
+          
+        },
+        {
+          "name": "Nguyễn Văn A4",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "film hay,lorem To run the app "
+        },
+        {
+          "name": "Nguyễn Văn A5",
+          "avatar":"https://tamhoan.com/forum/data/avatars/l/4/4153.jpg?1499441934",
+          "content": "tôi thấy hay,lorem To run the app with live reloading, choose one of"
+        }
+      ]
+    }
+    
+  ]
+}

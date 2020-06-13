@@ -7,7 +7,6 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-  ViewComponent,
 } from 'react-native'
 
 import bgImage from '@assets/images/background.png'

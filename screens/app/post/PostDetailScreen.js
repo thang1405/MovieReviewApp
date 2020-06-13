@@ -3,22 +3,20 @@ import {
   StyleSheet,
   View,
   Text,
+  Image,
   TextInput,
   FlatList,
   ImageBackground,
   ScrollView,
+  TouchableOpacity
 } from 'react-native'
 import CommentItem from '@components/CommentItem'
 import {
   MaterialCommunityIcons,
-  Entypo,
-  AntDesign,
   MaterialIcons,
 } from '@expo/vector-icons'
-import ReadMore from 'react-native-read-more-text'
 import Colors from '@constants/Colors'
-import { TouchableOpacity } from 'react-native-gesture-handler'
-export default class ListInfoScreen extends React.Component {
+export default class PostDetailScreen extends React.Component {
   render() {
     const { route } = this.props
     return (
@@ -28,54 +26,24 @@ export default class ListInfoScreen extends React.Component {
           <View style={styles.image}>
             <ImageBackground
               style={styles.img}
-              source={{ uri: route.params.film.imageUrl }}
+              source={{ uri: route.params.post.imageUrl }}
               resizeMode={'cover'}
             />
           </View>
           {/* title film */}
           <View style={styles.bottom}>
             <View style={styles.infomation}>
-              <Text style={styles.title}>{route.params.film.title}</Text>
+              <Text style={styles.title}>{route.params.post.title}</Text>
 
               <View style={styles.content}>
-                <ReadMore
-                  numberOfLines={4}
-                  renderTruncatedFooter={this._renderTruncatedFooter}
-                  renderRevealedFooter={this._renderRevealedFooter}
-                  onReady={this._handleTextReady}
-                >
-                  <Text style={styles.contentText}>
-                    {route.params.film.content}
-                  </Text>
-                </ReadMore>
+                <Text style={styles.contentText}>
+                  {route.params.post.content}
+                </Text>
               </View>
               {/* num like and comment  */}
             </View>
             <View style={styles.comment_list}>
-              <TouchableOpacity>
-                <View style={styles.like}>
-                  <View>
-                    {route.params.film.isFavorite ? (
-                      <AntDesign
-                        name="hearto"
-                        size={22}
-                        color={Colors.red}
-                        style={styles.iconLike}
-                      />
-                    ) : (
-                      <Entypo name="add-to-list" size={20} color="black" />
-                    )}
-                  </View>
-                  <View>
-                    <Text style={styles.likeText}>
-                      {route.params.film.isFavorite
-                        ? 'Favorited '
-                        : 'Add into List'}
-                    </Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
-
+            
               <View style={styles.comment}>
                 <View>
                   <MaterialCommunityIcons
@@ -87,7 +55,7 @@ export default class ListInfoScreen extends React.Component {
                 </View>
                 <View>
                   <Text style={styles.commentText}>
-                    {route.params.film.comment} Comments
+                    {route.params.post.comment} Comments
                   </Text>
                 </View>
               </View>
@@ -109,33 +77,14 @@ export default class ListInfoScreen extends React.Component {
             </View>
             {/* flatlist comment */}
             <FlatList
-              data={route.params.film.comments}
+              data={route.params.post.comments}
               renderItem={({ item }) => <CommentItem CommentItem={item} />}
-              keyExtractor={(item) => `${route.params.film.title} ${item.name}`}
+              keyExtractor={(item) => `${route.params.post.title} ${item.name}`}
             />
           </View>
         </View>
       </ScrollView>
     )
-  }
-  _renderTruncatedFooter = (handlePress) => {
-    return (
-      <Text style={{ color: 'gray', marginTop: 5 }} onPress={handlePress}>
-        Xem Thêm ...
-      </Text>
-    )
-  }
-
-  _renderRevealedFooter = (handlePress) => {
-    return (
-      <Text style={{ color: 'gray', marginTop: 5 }} onPress={handlePress}>
-        Thu nhỏ
-      </Text>
-    )
-  }
-
-  _handleTextReady = () => {
-    // ...
   }
 }
 const styles = StyleSheet.create({
@@ -172,11 +121,9 @@ const styles = StyleSheet.create({
   contentText: {
     fontSize: 16,
   },
-  infomation: {
-    overflow: 'hidden',
-  },
+  infomation: {},
   comment_list: {
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingLeft: 20,
@@ -187,17 +134,13 @@ const styles = StyleSheet.create({
   },
   like: {
     flexDirection: 'row',
-    flex: 1,
-    marginBottom: 15,
   },
   likeText: {
     marginLeft: 10,
     marginTop: 4,
-    fontSize: 16,
   },
   comment: {
     flexDirection: 'row',
-    flex: 1,
   },
   commentText: {
     marginLeft: 10,

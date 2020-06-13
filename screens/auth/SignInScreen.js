@@ -7,7 +7,6 @@ import {
   ImageBackground,
   TextInput,
   TouchableOpacity,
-  ViewComponent,
 } from 'react-native'
 
 import bgImage from '@assets/images/background.png'
@@ -16,7 +15,7 @@ import { setAuth } from '@actions'
 
 const SignInScreen = ({ setAuth }) => {
   const testLogin = () => {
-    setAuth({ token: 'abc' })
+    setAuth({ token: 'a' })
   }
   //const { navigation } = this.props
   return (
@@ -86,7 +85,7 @@ const SignInScreen = ({ setAuth }) => {
           <Text style={styles.loginText}>Don't have an account?</Text>
 
           <TouchableOpacity
-          //  onPress={() => navigation.navigate('SignUp')}
+           onPress={() => this.props.navigation.navigate('SignUp')}
           >
             <Text style={{ marginLeft: 40, color: '#FF0000' }}>Sign up</Text>
           </TouchableOpacity>

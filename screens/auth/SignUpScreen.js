@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Image, ImageBackground, TextInput, TouchableOpacity, ViewComponent, KeyboardAvoidingView } from 'react-native';
-//import { NavigationContainer } from '@react-navigation/native';
-//import { createStackNavigator } from '@react-navigation/stack';
+import { StyleSheet, Text, View, ImageBackground, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+
 
 import bgImage from '@assets/images/background.png'
 
@@ -26,7 +25,6 @@ export default class SignUp extends React.Component {
                 placeholderTextColor={"white"}
                 keyboardType='email-address'
                 returnKeyType='next'
-                onSubmitEditing={()=> this.refs.txUsername.focus()}
                 underlineColorAndroid='transparent'
               />
             </View>
@@ -40,8 +38,6 @@ export default class SignUp extends React.Component {
                 keyboardType='email-address'
                 returnKeyType='next'
                 underlineColorAndroid='transparent'
-                onSubmitEditing={()=> this.refs.txPassword.focus()}
-                ref={"txUsername"}
               />
             </View>
 
@@ -54,8 +50,7 @@ export default class SignUp extends React.Component {
                 secureTextEntry={true}
                 returnKeyType='next'
                 underlineColorAndroid='transparent'
-                onSubmitEditing={()=> this.refs.txConfirmPassword.focus()}
-                ref={"txPassword"}
+                
               />
             </View>
 
@@ -67,7 +62,6 @@ export default class SignUp extends React.Component {
                 placeholderTextColor={"white"}
                 secureTextEntry={true}
                 underlineColorAndroid='transparent'
-                ref={"txConfirmPassword"}
               />
             </View>
 

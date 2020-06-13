@@ -1,56 +1,91 @@
 import * as React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
-import { setLoading } from '@actions'
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+  FlatList,
+  ScrollView
+} from 'react-native'
+import PostItem from '@components/post/PostItem'
 import { Avatar } from 'react-native-elements'
 import { user } from '../../../fake_data/film_home.json'
+import postList from '../../../fake_data/post.json'
 export default class ProfileScreen extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      post: postList.posts,
+    }
+  }
+
   render() {
+    const { navigation } = this.props
+    const { post } = this.state
     return (
-      <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.container}>
         <View style={styles.top}></View>
         <View style={styles.bottom}>
-          <View style={styles.position}> 
+          <View style={styles.position}>
             <TouchableOpacity activeOpacity={0.98}>
-            <Avatar
-              rounded
-              source={{
-                uri: user.avatar,
-              }}
-              size="xlarge"
-            />
+              <Avatar
+                rounded
+                source={{
+                  uri: user.avatar,
+                }}
+                size="xlarge"
+              />
             </TouchableOpacity>
             <Text style={styles.username}>{user.username}</Text>
             <Text style={styles.email}>Email : {user.email}</Text>
           </View>
+          <View style={styles.postList}>
+            <FlatList
+              data={post}
+              renderItem={({ item }) => (
+                <PostItem
+                  postItem={item}
+                  onPress={() => {
+                    navigation.navigate({
+                      name: 'UserPost',
+                      params: { post: item },
+                    })
+                  }}
+                />
+              )}
+              keyExtractor={(item) => `${item.id}`}
+            />
+          </View>
         </View>
       </View>
+      </ScrollView>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-
     backgroundColor: '#fff',
   },
   top: {
-    flex: 1,
+    height:120,
     backgroundColor: '#111111',
   },
   bottom: {
-    flex: 3,
+
     // alignItems: 'center',
   },
-  position:{
+  position: {
     alignItems: 'center',
-    position:'relative',
-    top:-80
+    position: 'relative',
+    top: -80,
   },
-  username:{
-    fontSize:18
+  username: {
+    fontSize: 18,
   },
-  email:{
-    fontSize:15
-  }
+  email: {
+    fontSize: 15,
+  },
+  postList: {},
 })

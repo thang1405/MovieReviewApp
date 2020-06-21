@@ -1,5 +1,5 @@
 module.exports = function(api) {
-  api.cache(true)
+  api.cache(true);
   return {
     presets: ['babel-preset-expo'],
     plugins: [
@@ -7,17 +7,16 @@ module.exports = function(api) {
         'module-resolver',
         {
           alias: {
-            '@actions': './actions',
             '@assets': './assets',
             '@components': './components',
             '@constants': './constants',
-            '@firebase': './firebase',
             '@navigations': './navigations',
             '@screens': './screens',
-            '@store': './store'
+            '@actions':'./actions',
+            '@reducers':'./reducers'
           }
         }
       ]
     ]
-  }
-}
+  };
+};

@@ -1,5 +1,6 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from "react";
+// import { connect } from "react-redux";
+import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 
@@ -13,10 +14,9 @@ import HomeScreen from '@screens/app/home/index'
 import PostScreen from '@screens/app/PostScreen'
 
 const App = createBottomTabNavigator()
-const INITIAL_ROUTE_NAME = 'Home'
+const INITIAL_ROUTE_NAME = "Home";
 
-const AppNavigator = ({ state }) => {
-  const tabBarStatus = state.app.tabBarVisit
+export default function AppNavigator (){
   return (
     <NavigationContainer>
       <App.Navigator
@@ -38,7 +38,6 @@ const AppNavigator = ({ state }) => {
             tabBarIcon: ({ focused }) => (
               <TabBarAnt focused={focused} name="home" />
             ),
-            // tabBarVisible: tabBarStatus
           }}
         />
 
@@ -68,7 +67,6 @@ const AppNavigator = ({ state }) => {
           name="Profile"
           component={ProfileScreen}
           options={{
-            //title: $t('screens.user.title'),
             tabBarIcon: ({ focused }) => (
               <TabBarIcon focused={focused} name="md-person" />
             ),
@@ -86,7 +84,6 @@ const AppNavigator = ({ state }) => {
         />
       </App.Navigator>
     </NavigationContainer>
-  )
-}
-const mapState = (state) => ({ state })
-export default connect(mapState, null)(AppNavigator)
+  );
+};
+

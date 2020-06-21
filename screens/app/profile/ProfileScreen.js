@@ -11,17 +11,19 @@ import PostItem from '@components/post/PostItem'
 import { Avatar } from 'react-native-elements'
 import { user } from '../../../fake_data/film_home.json'
 import postList from '../../../fake_data/post.json'
+import firebase from '../../../firebase'
 export default class ProfileScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       post: postList.posts,
     }
-  }
-
+  };
+  
   render() {
     const { navigation } = this.props
     const { post } = this.state
+    var use = firebase.auth().currentUser;
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -37,8 +39,8 @@ export default class ProfileScreen extends React.Component {
                 size="xlarge"
               />
             </TouchableOpacity>
-            <Text style={styles.username}>{user.username}</Text>
-            <Text style={styles.email}>Email : {user.email}</Text>
+            <Text style={styles.username}>Username : {use.displayName}</Text>
+              <Text style={styles.email}>Email : {use.email} {use.photoURL}</Text>
           </View>
           <View style={styles.postList}>
             <FlatList

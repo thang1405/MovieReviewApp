@@ -10,16 +10,16 @@ import {
   Platform
 } from 'react-native'
 import { connect } from 'react-redux'
-import { setLoading } from '@actions'
+// import { setLoading } from '@actions'
 import { TextInput } from 'react-native-gesture-handler'
 
-const PostScreen = ({ setLoading }) => {
+const PostScreen = ({  }) => {
   return (
     <View style={styles.container}>
       {/* image */}
       <View style={styles.imgPost}>
         <TouchableOpacity
-          onPress={() => setLoading(true)}
+          // onPress={() => (true)}
           style={styles.flexImage}
         >
           <Image
@@ -53,7 +53,7 @@ const PostScreen = ({ setLoading }) => {
   )
 }
 
-export default connect(null, { setLoading })(PostScreen)
+export default connect(null, {})(PostScreen)
 
 const styles = StyleSheet.create({
   container: {

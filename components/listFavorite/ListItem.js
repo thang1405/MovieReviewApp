@@ -7,9 +7,9 @@ import {
   Text,
   ImageBackground,
 } from 'react-native'
-import { MaterialCommunityIcons, Feather, Ionicons } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import Colors from '@constants/Colors'
+// import { MaterialCommunityIcons, Feather, Ionicons } from '@expo/vector-icons'
+// import { AntDesign } from '@expo/vector-icons'
+// import Colors from '@constants/Colors'
 
 export default function listItem(props) {
   const { filmItem, onPress } = props

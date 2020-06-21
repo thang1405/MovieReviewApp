@@ -1,24 +1,19 @@
-import React from 'react'
-import { Provider } from 'react-redux'
-import store from './store'
-import './lang'
+import React, { Component } from "react";
 
-import RootScreen from '@screens/RootScreen'
-import LoadingOverlay from '@components/LoadingOverlay'
+import store from "./reducers/store";
+import { Provider } from "react-redux";
+import RootScreen from "./screens/RootScreen";
 
-// define global axios
-window.axios = require('axios')
-window.axios.defaults.headers.common['Content-Type'] = 'application/json'
-window.axios.defaults.headers.common['Accept'] = 'application/json'
-// window.axios.defaults.baseURL = 'http://kidsnow.edu.vn/api'
-import { YellowBox } from 'react-native';
-YellowBox.ignoreWarnings(['Warning: ...']);
+import { YellowBox } from "react-native";
+YellowBox.ignoreWarnings(["Warning: ..."]);
 console.disableYellowBox = true;
-export default function App() {
-  return (
-    <Provider store={store}>
-      <LoadingOverlay />
-      <RootScreen />
-    </Provider>
-  )
+
+export default class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <RootScreen />
+      </Provider>
+    );
+  }
 }

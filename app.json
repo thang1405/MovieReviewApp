@@ -1,9 +1,7 @@
 {
   "expo": {
-    "name": "Movie Review App",
-    "slug": "movie-review-app",
-    "privacy": "public",
-    "sdkVersion": "36.0.0",
+    "name": "demo-fb-rd",
+    "slug": "demo-fb-rd",
     "platforms": [
       "ios",
       "android",
@@ -11,10 +9,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

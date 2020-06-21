@@ -18,7 +18,7 @@ const ListNavigator = () => {
           },
           headerStyle:{
             backgroundColor:"#000",
-            paddingLeft:10
+            
           }
         }}
       />

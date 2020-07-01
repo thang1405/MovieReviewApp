@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 import {
   StyleSheet,
   View,
@@ -6,14 +6,14 @@ import {
   TouchableOpacity,
   Text,
   ImageBackground,
-} from 'react-native'
-import { MaterialCommunityIcons, Feather, Ionicons } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
-import Colors from '@constants/Colors'
-import { FontAwesome5 } from '@expo/vector-icons'
+} from "react-native";
+import { MaterialCommunityIcons, Feather, Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import Colors from "@constants/Colors";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function PostItem(props) {
-  const { postItem, onPress } = props
+  const { postItem, onPress } = props;
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress} activeOpacity={0.7}>
@@ -22,7 +22,7 @@ export default function PostItem(props) {
           source={{ uri: postItem.imageUrl }}
           style={styles.img}
           imageStyle={{ borderRadius: 5 }}
-          resizeMode={'cover'}
+          resizeMode={"cover"}
         ></ImageBackground>
         {/* info film */}
         <View style={styles.content}>
@@ -33,9 +33,6 @@ export default function PostItem(props) {
           <View style={styles.info}>
             <View style={styles.like}>
               <View>
-                <FontAwesome5 name="user-edit" size={20} color="white" />
-              </View>
-              <View>
                 <Text style={styles.likeText}> by {postItem.author}</Text>
               </View>
             </View>
@@ -43,14 +40,14 @@ export default function PostItem(props) {
         </View>
       </TouchableOpacity>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     margin: 15,
-    backgroundColor: '#0b0b0b',
+    backgroundColor: "#0b0b0b",
     borderRadius: 5,
   },
   img: {
@@ -67,35 +64,36 @@ const styles = StyleSheet.create({
 
   title: {
     marginBottom: 5,
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   titleText: {
     fontSize: 18,
-    color: '#fff',
+    color: "#fff",
   },
   info: {
-    flexDirection: 'row',
-    
+    flexDirection: "row",
+
     flex: 1,
   },
   comment: {
-    flexDirection: 'row',
+    flexDirection: "row",
     flex: 1,
-    justifyContent:'flex-end',
+    justifyContent: "flex-end",
   },
   commentText: {
-    color: '#f4f4f4',
+    color: "#f4f4f4",
     marginLeft: 10,
     marginTop: 4,
   },
   like: {
-    flexDirection: 'row',
-    justifyContent:'flex-start',
+    flexDirection: "row",
+    justifyContent: "flex-start",
     flex: 1,
   },
   likeText: {
-    color: '#f4f4f4',
+    color: "#f4f4f4",
+    justifyContent: "flex-end",
     marginLeft: 10,
     marginTop: 4,
   },
-})
+});

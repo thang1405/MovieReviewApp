@@ -15,60 +15,45 @@ export default class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
+      postsList: [],
     };
   }
-  
+
   componentDidMount() {
     const itemRef = firebase.database();
-    const user = firebase.auth().currentUser;
-    
-    var ref = itemRef.ref(`posts/${user.uid}`); 
-    ref.on("value",(snapshot) => {
+    var ref = itemRef.ref(`postList`);
+    ref.on("value", (snapshot) => {
       var items = [];
       snapshot.forEach((doc) => {
-        items.push({
-          id: doc.key,
-          imageUrl: doc.val().imageUrl,
-          title: doc.val().title,
-          content: doc.val().content,
-          author: doc.val().author,
-          comments : doc.comments
-        });
+        itemRef
+          .ref(`posts/${doc.val().uid}/${doc.val().postId}`)
+          .on("value", (snap) => {
+            items.push({
+              id: snap.key,//postId
+              imageUrl: snap.val().imageUrl,
+              title: snap.val().title,
+              content: snap.val().content,
+              author: snap.val().author,
+              comments: snap.comments,
+            });
+          });
       });
-      this.setState({ posts: items });
+      this.setState({ postsList: items });
     });
   }
 
   render() {
     const { navigation } = this.props;
-    const { posts } = this.state;
-    var user = firebase.auth().currentUser;
-    console.log(user.Avatar);
+    const { postsList } = this.state;
+    // console.log(postsList);
     return (
       <ScrollView>
         <View style={styles.container}>
-          <View style={styles.top}></View>
           <View style={styles.bottom}>
-            <View style={styles.position}>
-              <TouchableOpacity activeOpacity={0.98}>
-                <Avatar
-                  rounded
-                  source={{
-                    uri: user.photoURL,
-                  }}
-                  size="xlarge"
-                />
-              </TouchableOpacity>
-              <Text style={styles.username}>{user.displayName}</Text>
-              <Text style={styles.email}>
-                Email : {user.email} 
-              </Text>
-            </View>
             {/* list post */}
             <View style={styles.postList}>
               <FlatList
-                data={posts}
+                data={postsList}
                 renderItem={({ item }) => (
                   <PostItem
                     postItem={item}

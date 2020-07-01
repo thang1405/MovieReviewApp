@@ -12,18 +12,11 @@ const INITIAL_ROUTE_NAME = "SignIn";
 
 export default function AuthNavigator() {
   return (
-    // <NavigationContainer>
-    //   <Auth.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
-    //     <Auth.Screen name="Login" component={Login} />
-    //     <Auth.Screen name="Signup" component={Signup} />
-    //   </Auth.Navigator>
-    // </NavigationContainer>
+
     <NavigationContainer>
       <Auth.Navigator
         initialRouteName={INITIAL_ROUTE_NAME}
-        // screenOptions={{
-        //   header: () => null,
-        // }}
+
       >
         <Auth.Screen
           name="SignIn"

@@ -1,28 +1,37 @@
 {
   "expo": {
-    "name": "demo-fb-rd",
-    "slug": "demo-fb-rd",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "name": "MovieReviewApp",
+    "slug": "Movie-Review-App",
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon-app.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
+    },
+    "extra": {
+      "firebase": {
+        "apiKey": "AIzaSyAnmuw3muBDKigQcWpm8pS55JYXYZ_1oAU",
+        "authDomain": "rnmovies-c6507.firebaseapp.com",
+        "databaseURL": "https://rnmovies-c6507.firebaseio.com",
+        "projectId": "rnmovies-c6507",
+        "storageBucket": "rnmovies-c6507.appspot.com",
+        "messagingSenderId": "272094259733",
+        "appId": "1:272094259733:web:0f4e238ac106c8fb17bc1c",
+        "measurementId": "G-ZXCYM2MH43"
+      },
+      "facebook": {
+        "appId": "597063654248671"
+      }
     }
   }
 }

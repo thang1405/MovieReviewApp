@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import AuthNavigator from "../navigations/AuthNavigator";
-import AppNavigator from "../navigations/AppNavigator";
+import AuthNavigator from "@navigations/AuthNavigator";
+import AppNavigator from "@navigations/AppNavigator";
 
 const AppRoot = ({ auth }) => {
   console.log(auth);

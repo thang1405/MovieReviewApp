@@ -13,8 +13,9 @@ import {
 import CommentItem from "@components/CommentItem";
 import { Avatar } from "react-native-elements";
 
+
 import firebase from "../../../firebase";
-export default class PostDetailScreen extends React.Component {
+export default class NewsDetailScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,6 +43,7 @@ export default class PostDetailScreen extends React.Component {
         content: "",
       });
     }
+    // this.sendPushNotification();
   }
 
   componentDidMount() {
@@ -63,11 +65,13 @@ export default class PostDetailScreen extends React.Component {
     });
   }
 
+  //notification
+  
+
   render() {
     const { route } = this.props;
     const user = firebase.auth().currentUser;
-    console.log('---------');
-    console.log(route.params.post);
+    // console.log(this.state.comments);
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -90,6 +94,10 @@ export default class PostDetailScreen extends React.Component {
                 <View style={styles.content}>
                   <Text style={styles.contentText}>
                     {route.params.post.content}
+                  </Text>
+                  <Text style={styles.contentText}>
+                    {" "}
+                    write by :{route.params.post.author}
                   </Text>
                 </View>
                 {/* num like and comment  */}
@@ -123,7 +131,6 @@ export default class PostDetailScreen extends React.Component {
                   />
                 </View>
               </View>
-
               {/* flatlist comment */}
 
               <FlatList
@@ -222,33 +229,3 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 });
-
-{
-  /* <TouchableOpacity
-                    onPress={() => {
-                      firebase
-                        .database()
-                        .ref(`posts/${user.uid}`)
-                        .child(route.params.post.id)
-                        .remove();
-                      firebase
-                        .database()
-                        .ref("postList")
-                        .on("value", function (snapshot) {
-                          snapshot.forEach(function (childSnapshot) {
-                            var key = childSnapshot.key;
-                            var postId = childSnapshot.val().postId;
-                            if (postId === route.params.post.id) {
-                              firebase
-                                .database()
-                                .ref(`postList/${key}`)
-                                .remove();
-                            }
-                          });
-                        });
-                      this.props.navigation.navigate("Profile");
-                    }}
-                  >
-                    <Text>Xóa</Text>
-                  </TouchableOpacity> */
-}

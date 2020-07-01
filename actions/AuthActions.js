@@ -8,6 +8,7 @@ import {
   SIGNOUT_SUCCESS,
   SIGNOUT_ERROR
 } from "./ActionTypes";
+import * as Facebook from 'expo-facebook';
 export const createUserSuccess = (resp) => {
   return {
     type: CREATE_USER_SUCCESS,
@@ -54,8 +55,10 @@ export const createUser = (email, pass,name) => (dispatch) => {
     .auth()
     .createUserWithEmailAndPassword(email, pass)
     .then((resp) => {
+      let url = "https://firebasestorage.googleapis.com/v0/b/rnmovies-c6507.appspot.com/o/image%2F1593366903051?alt=media&token=5ffde16f-55fa-4c5c-bb52-52ac1544371e"
       resp.user.updateProfile({
-        displayName: name
+        displayName: name,
+        photoURL:url
       })
       return dispatch(createUserSuccess(resp));
     })
@@ -73,6 +76,7 @@ export const loginUser = (email, pass) => (dispatch) => {
       dispatch(loginUserFail(error));
     });
 };
+
 
 export const signOut = () => (dispatch) => {
   firebase

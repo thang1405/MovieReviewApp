@@ -1,17 +1,16 @@
 import React from "react";
-// import { connect } from "react-redux";
-import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 
 import TabBarIcon from '@components/TabBarIcon'
 import TabBarAnt from '@components/TabBarAnt'
-import NotificationScreen from '@screens/app/notifications/index'
+import TabBarFont from '@components/TabBarFont'
+import NewsScreen from '@screens/app/news/index'
 
 import ListScreen from '@screens/app/listFavorite/index'
 import ProfileScreen from '@screens/app/profile/index'
 import HomeScreen from '@screens/app/home/index'
-import PostScreen from '@screens/app/PostScreen'
+import PostScreen from '@screens/app/post/PostScreen'
 
 const App = createBottomTabNavigator()
 const INITIAL_ROUTE_NAME = "Home";
@@ -42,12 +41,12 @@ export default function AppNavigator (){
         />
 
         <App.Screen
-          name="Notification"
-          component={NotificationScreen}
+          name="News"
+          component={NewsScreen}
           options={{
-            title: 'Notification',
+            title: 'news',
             tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="md-notifications" />
+              <TabBarFont focused={focused} name="new-box" />
             ),
             
           }}

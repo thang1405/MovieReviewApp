@@ -1,14 +1,13 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import ProfileScreen from "./ProfileScreen";
-import PostDetailScreen from "../post/PostDetailScreen";
+import NewsScreen from "./NewsScreen";
+import NewsDetailScreen from "../post/NewsDetailScreen";
 import { Entypo } from "@expo/vector-icons";
-import { signOut } from "@actions/index";
 import { connect } from "react-redux";
 import { View } from "react-native";
-const Profile = createStackNavigator();
+const New = createStackNavigator();
 
-class ProfileNavigator extends React.Component {
+class NewNavigator extends React.Component {
   
   constructor(props) {
     super(props);
@@ -16,26 +15,16 @@ class ProfileNavigator extends React.Component {
   
   render(){
   return (
-    <Profile.Navigator>
-      <Profile.Screen
-        name="Profile"
-        component={ProfileScreen}
+    <New.Navigator>
+      <New.Screen
+        name="News"
+        component={NewsScreen}
         options={{
           headerTitleAlign: "left",
           headerTitleStyle: {
             fontSize: 23,
             color: "#fff",
           },
-          headerRight: () => (
-            <View>
-              <Entypo
-              name="log-out"
-              size={24}
-              color="white"
-              onPress={() => this.props.signOut()}
-            />
-            </View>
-          ),
           headerRightContainerStyle: {
             paddingRight: 20,
           },
@@ -44,9 +33,9 @@ class ProfileNavigator extends React.Component {
           },
         }}
       />
-      <Profile.Screen
+      <New.Screen
         name="UserPost"
-        component={PostDetailScreen}
+        component={NewsDetailScreen}
         options={{
           headerBackTitleVisible: false,
           headerTitle: null,
@@ -61,10 +50,10 @@ class ProfileNavigator extends React.Component {
           headerTintColor: "#fff",
         }}
       />
-    </Profile.Navigator>
+    </New.Navigator>
   );
 };
 }
 export const mapStateToProps = ({}) => ({});
 
-export default connect(mapStateToProps, { signOut })(ProfileNavigator);
+export default connect(mapStateToProps, { })(NewNavigator);

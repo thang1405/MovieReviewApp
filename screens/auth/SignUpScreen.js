@@ -14,10 +14,10 @@ import bgImage from "@assets/images/background.png";
 import { connect } from "react-redux";
 import { createUser } from "@actions/index";
 class SignupScreen extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      displayName: '',
+      displayName: "",
       email: "",
       password: "",
     };
@@ -36,9 +36,9 @@ class SignupScreen extends React.Component {
   handleEmail(text) {
     let regexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (text.match(regexp) === null) {
-      this.setState({ errorEmail: true });
+      this.setState({ error: true });
     } else {
-      this.setState({ errorEmail: false });
+      this.setState({ error: false });
     }
     this.setState({ email: text });
   }
@@ -47,30 +47,34 @@ class SignupScreen extends React.Component {
     let regexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     //Tối thiểu tám ký tự, ít nhất một chữ cái và một số:
     if (text.match(regexp) === null) {
-      this.setState({ errorPassword: true });
+      this.setState({ error: true });
     } else {
-      this.setState({ errorPassword: false });
+      this.setState({ error: false });
     }
     this.setState({ password: text });
   }
 
   handlePress() {
-    const { email, errorPassword, errorEmail,displayName, password } = this.state;
-    if (!errorPassword || !errorEmail) {
-      this.props.createUser(email, password,displayName);
-    }
-    if (errorPassword && errorEmail) {
+    const {
+      email,
+      error,
+      displayName,
+      password,
+    } = this.state;
+    if (!error) {
+      this.props.createUser(email, password, displayName);
+      console.log('ok');
+      console.log(this.state);
+      this.props.navigation.navigate("SignIn");
+    } else {
       alert(
-        "Email sai và mật khẩu tối thiểu tám ký tự, ít nhất một chữ cái và một số "
+        "Email sai và mật khẩu tối thiểu tám ký tự, mật khẩu cần ít nhất một chữ cái và một số "
       );
-    } else if (errorEmail) {
-      alert("Nhập Email sai");
-    } else if (errorPassword) {
-      alert("Mật khẩu tối thiểu tám ký tự, ít nhất một chữ cái và một số ");
-    }
+      console.log('none');
+      console.log(this.state);
+    } 
   }
   render() {
-    const { navigation } = this.props;
     return (
       <ImageBackground source={bgImage} style={styles.backgroundContainer}>
         <KeyboardAvoidingView
@@ -83,21 +87,6 @@ class SignupScreen extends React.Component {
 
           <View style={styles.box}>
             <View stype={styles.inputView}>
-              <Text style={styles.textScreen}>Email</Text>
-              <TextInput
-                style={styles.input}
-                placeholder={"Enter your email"}
-                placeholderTextColor={"white"}
-                keyboardType="email-address"
-                returnKeyType="next"
-                autoCapitalize="none"
-                accessibilityLabel="email"
-                onChangeText={this.handleEmail.bind(this)}
-                underlineColorAndroid="transparent"
-              />
-            </View>
-
-            <View stype={styles.inputView}>
               <Text style={styles.textScreen}>User name</Text>
               <TextInput
                 style={styles.input}
@@ -107,6 +96,19 @@ class SignupScreen extends React.Component {
                 autoCapitalize="words"
                 accessibilityLabel="displayName"
                 onChangeText={this.handleName.bind(this)}
+              />
+            </View>
+
+            <View stype={styles.inputView}>
+              <Text style={styles.textScreen}>Email</Text>
+              <TextInput
+                style={styles.input}
+                placeholder={"Enter your email"}
+                placeholderTextColor={"white"}
+                keyboardType="email-address"
+                returnKeyType="next"
+                accessibilityLabel="email"
+                onChangeText={this.handleEmail.bind(this)}
               />
             </View>
 
@@ -125,15 +127,10 @@ class SignupScreen extends React.Component {
               />
             </View>
 
-            <View
-              style={[
-                styles.footer,
-                { alignItems: "center", justifyContent: "center" },
-              ]}
-            >
+            <View style={[styles.footer, { alignItems: "center" }]}>
               <TouchableOpacity
                 onPress={this.handlePress.bind(this)}
-                opacity={0.5}
+                opacity={0.9}
                 style={[styles.loginBtn, { backgroundColor: "#fb5b5a" }]}
               >
                 <Text style={styles.loginText}>Sign up</Text>
@@ -171,9 +168,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
+    marginTop: 40,
   },
   logo: {
     fontWeight: "bold",
@@ -199,7 +194,7 @@ const styles = StyleSheet.create({
     color: "white",
     paddingHorizontal: 5,
     borderBottomColor: "#FFFFFF",
-    opacity: 0.4,
+    opacity: 0.9,
     borderBottomWidth: 1,
     borderBottomColor: "white",
   },

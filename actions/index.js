@@ -8,5 +8,6 @@ export {
   signOut,
   signOutSuccess,
   signOutError,
-  dispatchLogin
+  dispatchLogin,
+  loginFacebook
 } from './AuthActions';

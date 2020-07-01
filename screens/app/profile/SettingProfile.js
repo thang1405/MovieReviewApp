@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import { TextInput } from "react-native-gesture-handler";
 import { Avatar } from "react-native-elements";
 import firebase from "../../../firebase";
+import Colors from '@constants/Colors'
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 
@@ -20,8 +21,8 @@ class SettingScreen extends React.Component {
     this.state = {
       hasCameraPermission: null,
       uploadlink: null,
-      title: "",
       password: "",
+      passwordAgain: "",
     };
   }
   //nhập
@@ -35,10 +36,20 @@ class SettingScreen extends React.Component {
     }
     this.setState({ password: text });
   }
+  handlePasswordAgain(text) {
+    let regexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    //Tối thiểu tám ký tự, ít nhất một chữ cái và một số:
+    if (text.match(regexp) === null) {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
+    this.setState({ passwordAgain: text });
+  }
   handlePress() {
     const user = firebase.auth().currentUser;
-    const { password, uploadlink, error } = this.state;
-    if (uploadlink) {
+    const { password, passwordAgain, uploadlink, error } = this.state;
+    if (uploadlink  && password === passwordAgain && password === '') {
       user
         .updateProfile({
           photoURL: uploadlink,
@@ -56,22 +67,20 @@ class SettingScreen extends React.Component {
       this.props.navigation.navigate("Profile");
       this.setState({
         uploadlink: null,
-        title: "",
+        password: "",
+        passwordAgain: "",
       });
-    } else if (!error) {
+    } else if (!error && password === passwordAgain && password !=='') {
       user
         .updatePassword(password)
-        .then(function () {})
-        .catch(function (error) {
-          console.log("update pass fail");
-        });
-      this.props.navigation.navigate("Profile");
-      this.setState({
-        uploadlink: null,
-        title: "",
-      });
+        .then(function () {
+          // alert("update pass ok");
+          
+        })
+        ;
+        this.props.navigation.navigate("Profile");
     } else {
-      alert("mật khẩu cần ít nhất một chữ cái và một số ");
+      alert("Nhập lại mật khẩu");
       console.log("none");
       console.log(this.state);
     }
@@ -142,12 +151,12 @@ class SettingScreen extends React.Component {
       .then((url) => {
         const uploadlink = url;
         this.setState({ uploadlink });
-        console.log(this.state);
       });
   }
 
   render() {
     const user = firebase.auth().currentUser;
+    console.log(this.state);
     return (
       <View style={styles.container}>
         {/* image */}
@@ -158,19 +167,21 @@ class SettingScreen extends React.Component {
               switch (this.state.uploadlink) {
                 case null:
                   return (
-                    <View style={{
-                      backgroundColor: "#111111",
-                      width: 152,
-                      height: 152,
-                      borderRadius: 76,
-                      borderWidth: 1,
-                      borderColor: "#fff",
-                    }}>
-                    <Avatar
-                      rounded
-                      source={{ uri: user.photoURL }}
-                      size="xlarge"
-                    />
+                    <View
+                      style={{
+                        backgroundColor: "#fff",
+                        width: 152,
+                        height: 152,
+                        borderRadius: 76,
+                        borderWidth: 1,
+                        borderColor: "#fff",
+                      }}
+                    >
+                      <Avatar
+                        rounded
+                        source={{ uri: user.photoURL }}
+                        size="xlarge"
+                      />
                     </View>
                   );
                 case "":
@@ -178,7 +189,7 @@ class SettingScreen extends React.Component {
                     <View
                       style={{
                         padding: 55,
-                        backgroundColor: "#111111",
+                        backgroundColor: "#fff",
                         width: 149,
                         height: 149,
                         borderRadius: 75,
@@ -209,7 +220,7 @@ class SettingScreen extends React.Component {
         <View style={styles.content}>
           <TextInput
             style={styles.textTitle}
-            placeholder={"Enter new Password"}
+            placeholder={"Nhập mật khẩu mới"}
             value={this.state.password}
             secureTextEntry={true}
             returnKeyType="next"
@@ -218,17 +229,17 @@ class SettingScreen extends React.Component {
           />
           <TextInput
             style={styles.textTitle}
-            placeholder={"Enter new Password"}
-            value={this.state.password}
+            placeholder={"Nhập lại mật khẩu mới"}
+            value={this.state.passwordAgain}
             secureTextEntry={true}
             returnKeyType="next"
             accessibilityLabel="password"
-            onChangeText={this.handlePassword.bind(this)}
+            onChangeText={this.handlePasswordAgain.bind(this)}
           />
         </View>
         <View style={styles.button}>
           <Button
-            title={"Update"}
+            title={"Cập nhật"}
             style={styles.btnPost}
             color={"#fff"}
             onPress={this.handlePress.bind(this)}
@@ -254,11 +265,13 @@ const styles = StyleSheet.create({
   },
   textTitle: {
     marginLeft: 31,
-    borderBottomColor: "#E3E3E3",
+    borderColor: "#E3E3E3",
     marginRight: 31,
     padding: 10,
-    borderBottomWidth: 1,
-    height: 40,
+    paddingLeft: 20,
+    borderWidth: 1,
+    borderRadius: 5,
+    height: 50,
     fontSize: 18,
     marginTop: 10,
   },
@@ -269,13 +282,13 @@ const styles = StyleSheet.create({
     marginLeft: "20%",
     justifyContent: "center",
     alignContent: "center",
-    backgroundColor: "#FF001B",
+    backgroundColor: Colors.red,
     borderRadius: 25,
     marginBottom: 10,
   },
   btnPost: {
     fontWeight: "bold",
-    color: "#FF001B",
+    color: "#fff",
   },
   top: {
     height: 150,
@@ -291,9 +304,9 @@ const styles = StyleSheet.create({
     top: -80,
   },
   username: {
-    fontSize: 18,
+    fontSize: 20,
   },
   email: {
-    fontSize: 15,
+    fontSize: 17,
   },
 });

@@ -33,7 +33,7 @@ export default function PostItem(props) {
           <View style={styles.info}>
             <View style={styles.like}>
               <View>
-                <Text style={styles.likeText}> by {postItem.author}</Text>
+                <Text style={styles.likeText}> {postItem.author}</Text>
               </View>
             </View>
           </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: 384,
-    height: 200,
+    height: 210,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
   },
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   },
   likeText: {
     color: "#f4f4f4",
+    fontSize:14,
     justifyContent: "flex-end",
     marginLeft: 10,
     marginTop: 4,

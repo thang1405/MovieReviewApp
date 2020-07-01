@@ -20,14 +20,14 @@
     },
     "extra": {
       "firebase": {
-        "apiKey": "AIzaSyDd2-4Vc0YbHnvg00CqxhkC9QSxAs-m2s0",
-        "authDomain": "moviereviewapp-8ef7c.firebaseapp.com",
-        "databaseURL": "https://moviereviewapp-8ef7c.firebaseio.com",
-        "projectId": "moviereviewapp-8ef7c",
-        "storageBucket": "moviereviewapp-8ef7c.appspot.com",
-        "messagingSenderId": "967896116087",
-        "appId": "1:967896116087:web:b46022af2c2099aa120f72",
-        "measurementId": "G-6FV52BGXJP"
+        "apiKey": "AIzaSyAnmuw3muBDKigQcWpm8pS55JYXYZ_1oAU",
+        "authDomain": "rnmovies-c6507.firebaseapp.com",
+        "databaseURL": "https://rnmovies-c6507.firebaseio.com",
+        "projectId": "rnmovies-c6507",
+        "storageBucket": "rnmovies-c6507.appspot.com",
+        "messagingSenderId": "272094259733",
+        "appId": "1:272094259733:web:0f4e238ac106c8fb17bc1c",
+        "measurementId": "G-ZXCYM2MH43"
       },
       "facebook": {
         "appId": "597063654248671"

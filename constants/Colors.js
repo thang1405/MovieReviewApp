@@ -9,7 +9,7 @@ const inputBackground = '#F9F9F9'
 const paleGray = '#dddddd'
 
 // origin color
-const red = '#ff0000'
+const red = '#f44336'
 const green = '#00ff00'
 const blue = '#0000ff'
 const white = '#ffffff'

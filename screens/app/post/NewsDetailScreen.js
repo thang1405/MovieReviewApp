@@ -97,7 +97,7 @@ export default class NewsDetailScreen extends React.Component {
                   </Text>
                   <Text style={styles.contentText}>
                     {" "}
-                    write by :{route.params.post.author}
+                    Bởi : {route.params.post.author}
                   </Text>
                 </View>
                 {/* num like and comment  */}
@@ -152,11 +152,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    height: 290,
+    height: 400,
   },
   img: {
-    width: 414,
-    height: 300,
+    width: '100%',
+    height: 420,
     borderTopRightRadius: 5,
     borderTopLeftRadius: 5,
   },

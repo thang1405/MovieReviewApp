@@ -33,6 +33,7 @@ export default class SearchScreen extends React.Component {
   openPopup = (id) => {
     const user = firebase.auth().currentUser;
     const apiurl = "http://www.omdbapi.com/?apikey=ab60ee59";
+    let date = new Date().getTime();
     axios(apiurl + "&i=" + id).then(({ data }) => {
       let items = data;
       let exists = false;
@@ -52,13 +53,13 @@ export default class SearchScreen extends React.Component {
         //film chưa có trong db 
         //tạo trong db films
         firebase.database().ref(`films/${items.imdbID}`).update({
-          isFavorite: false,
-          title:items.Title
+          title:items.Title,
+          createTime: date
         });
         //tạo trong db listFavorite
         firebase.database().ref(`listFavorite/${user.uid}/${items.imdbID}`).update({
-          isFavorite: false,
-          title:items.Title
+          title:items.Title,
+          // createTime: date
         });
         console.log("tao them");
       }

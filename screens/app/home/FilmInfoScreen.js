@@ -286,11 +286,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   image: {
-    height: 400,
+    height: 430,
   },
   img: {
     width: "100%",
-    height: 490,
+    height: 450,
     borderTopRightRadius: 5,
     borderTopLeftRadius: 5,
   },
@@ -343,6 +343,7 @@ const styles = StyleSheet.create({
   commentInput: {
     paddingRight: 15,
     marginTop: 5,
+    paddingTop:5,
     // paddingLeft: 15,
     flex: 1,
     flexDirection: "row",

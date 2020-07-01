@@ -36,13 +36,13 @@ export default class HomeScreen extends React.Component {
         console.log("users no exists!");
         firebase.database().ref("users").child(`${user.uid}`).set({
           displayName: user.displayName,
-          photoURL: 'https://firebasestorage.googleapis.com/v0/b/rnmovies-c6507.appspot.com/o/image%2F1593534739722?alt=media&token=5bedf272-db34-4b4b-ae2e-57795dabbcb4',
+          photoURL: 'https://wallpaperaccess.com/full/1836283.jpg',
         });
         exists = true;
         console.log('add'+`${user.uid}`);
       }
     });
-    firebase.database().ref('films').on('value',(snapshot)=>{
+    firebase.database().ref('films').orderByChild('createTime').on('value',(snapshot)=>{
       var items = [];
       
       snapshot.forEach((doc) => {

@@ -6,7 +6,7 @@ import SettingProfile from "./SettingProfile";
 import { Entypo } from "@expo/vector-icons";
 import { signOut } from "@actions/index";
 import { connect } from "react-redux";
-import { View } from "react-native";
+import { View, Alert } from "react-native";
 const Profile = createStackNavigator();
 
 class ProfileNavigator extends React.Component {
@@ -32,7 +32,21 @@ class ProfileNavigator extends React.Component {
                   name="log-out"
                   size={24}
                   color="white"
-                  onPress={() => this.props.signOut()}
+                  onPress={() => {
+                    Alert.alert(
+                      "Đăng xuất",
+                      "Bạn muốn đăng xuất ? ",
+                      [
+                        {
+                          text: "Hủy",
+                          onPress: () => console.log("Cancel Pressed"),
+                          style: "cancel"
+                        },
+                        { text: "Xác nhận", onPress: () => this.props.signOut() }
+                      ],
+                      { cancelable: false }
+                    );
+                    }}
                 />
               </View>
             ),

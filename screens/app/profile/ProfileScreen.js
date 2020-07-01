@@ -38,7 +38,7 @@ export default class ProfileScreen extends React.Component {
           imageUrl: doc.val().imageUrl,
           title: doc.val().title,
           content: doc.val().content,
-          author: doc.val().author,
+          // author: doc.val().author,
           comments: doc.comments,
         });
       });
@@ -50,7 +50,7 @@ export default class ProfileScreen extends React.Component {
     const { navigation } = this.props;
     const { posts } = this.state;
     var user = firebase.auth().currentUser;
-    console.log(user.Avatar);
+    // console.log(this.state)
     return (
       <ScrollView style={styles.container}>
         <View style={styles.top}></View>
@@ -77,6 +77,7 @@ export default class ProfileScreen extends React.Component {
             <Text style={styles.username}>{user.displayName}</Text>
             <Text style={styles.email}>Email : {user.email}</Text>
             <TouchableOpacity
+              style={styles.settingView}
               onPress={() => {
                 this.props.navigation.navigate({
                   name: "Setting",
@@ -86,6 +87,9 @@ export default class ProfileScreen extends React.Component {
             >
               <Text style={styles.setting}>Chỉnh sửa thông tin cá nhân</Text>
             </TouchableOpacity>
+            <View style={styles.yourPostTitle}>
+              <Text style={styles.yourPost}>Bài đăng của bạn</Text>
+            </View>
           </View>
           {/* list post */}
           <View style={styles.postList}>
@@ -122,6 +126,9 @@ const styles = StyleSheet.create({
   bottom: {
     backgroundColor: "#fff",
     borderRadius: 10,
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    minHeight: 500,
   },
   position: {
     alignItems: "center",
@@ -129,12 +136,32 @@ const styles = StyleSheet.create({
     top: -80,
   },
   username: {
-    fontSize: 18,
+    fontSize: 20,
   },
   email: {
-    fontSize: 15,
+    fontSize: 17,
   },
   setting: {
     padding: 5,
+    paddingHorizontal: 25,
+    fontSize: 17,
   },
+  settingView: {
+    margin: 15,
+    borderColor: "#1b1b1b",
+    borderRadius: 20,
+    borderWidth: 1,
+  },
+  yourPost: {
+    fontSize: 20,
+    padding:10,
+    paddingHorizontal:120
+  },
+  yourPostTitle:{
+    borderBottomColor: "#EBEBEB",
+    borderBottomWidth: 1,
+  },
+  postList:{
+    marginTop:-50
+  }
 });

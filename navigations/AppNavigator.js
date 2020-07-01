@@ -2,9 +2,11 @@ import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 
-import TabBarIcon from '@components/TabBarIcon'
-import TabBarAnt from '@components/TabBarAnt'
-import TabBarFont from '@components/TabBarFont'
+import TabBarIcon from '@components/icons/TabBarIcon'
+import TabBarAnt from '@components/icons/TabBarAnt'
+import TabBarMat from '@components/icons/TabBarMat'
+import TabBarEvil from '@components/icons/TabBarEvil'
+import TabBarFont from '@components/icons/TabBarFont'
 import NewsScreen from '@screens/app/news/index'
 
 import ListScreen from '@screens/app/listFavorite/index'
@@ -35,7 +37,7 @@ export default function AppNavigator (){
           options={{
             title: 'Home',
             tabBarIcon: ({ focused }) => (
-              <TabBarAnt focused={focused} name="home" />
+              <TabBarMat focused={focused} name="home" />
             ),
           }}
         />
@@ -46,7 +48,7 @@ export default function AppNavigator (){
           options={{
             title: 'news',
             tabBarIcon: ({ focused }) => (
-              <TabBarFont focused={focused} name="new-box" />
+              <TabBarFont focused={focused} name="news" />
             ),
             
           }}
@@ -77,7 +79,7 @@ export default function AppNavigator (){
           options={{
             title: 'Favorites list',
             tabBarIcon: ({ focused }) => (
-              <TabBarIcon focused={focused} name="ios-heart-empty" />
+              <TabBarAnt focused={focused} name="heart" />
             ),
           }}
         />

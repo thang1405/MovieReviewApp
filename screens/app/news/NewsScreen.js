@@ -8,7 +8,6 @@ import {
   ScrollView,
 } from "react-native";
 import PostItem from "@components/post/PostItem";
-import { Avatar } from "react-native-elements";
 import firebase from "../../../firebase";
 
 export default class ProfileScreen extends React.Component {

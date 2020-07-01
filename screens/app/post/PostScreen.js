@@ -8,6 +8,7 @@ import {
   Image,
   Keyboard,
 } from "react-native";
+import Colors from '@constants/Colors'
 import { connect } from "react-redux";
 import { TextInput } from "react-native-gesture-handler";
 
@@ -38,6 +39,28 @@ class PostScreen extends React.Component {
     if (title && content && uploadlink) {
       firebase.database().ref(`posts/${user.uid}`).push({
         imageUrl: uploadlink,
+        title: title,
+        content: content,
+        author: user.displayName,
+        comments : []
+      }).then((snap)=>{
+        const sessionId = new Date().getTime();
+        firebase.database().ref(`postList`).push({
+          uid:user.uid,
+          postId: snap.key,
+          time : sessionId
+        });
+      })
+      
+      this.props.navigation.navigate("Profile");
+      this.setState({
+        uploadlink: null,
+        title: "",
+        content: "",
+      })
+    }else if (title && content && !uploadlink) {
+      firebase.database().ref(`posts/${user.uid}`).push({
+        imageUrl: 'https://qph.fs.quoracdn.net/main-qimg-a7a17e6d384c6eec48db69c9cf29b182',
         title: title,
         content: content,
         author: user.displayName,
@@ -254,13 +277,13 @@ const styles = StyleSheet.create({
     marginLeft: "20%",
     justifyContent: "center",
     alignContent: "center",
-    backgroundColor: "#FF001B",
+    backgroundColor: Colors.red,
     borderRadius: 25,
     marginBottom: 10,
   },
   btnPost: {
     fontWeight: "bold",
-    color: "#FF001B",
+    color: "#fff",
   },
   imageAdd: {
     marginTop: 120,

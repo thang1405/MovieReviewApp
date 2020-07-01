@@ -13,7 +13,6 @@ import {
 import CommentItem from "@components/CommentItem";
 import { Avatar } from "react-native-elements";
 
-
 import firebase from "../../../firebase";
 export default class NewsDetailScreen extends React.Component {
   constructor(props) {
@@ -30,11 +29,12 @@ export default class NewsDetailScreen extends React.Component {
   }
   handlePress() {
     const user = firebase.auth().currentUser;
-    const postId = this.props.route.params.post.id;
+    const postId = this.props.route.params.postID;
+    const userId = this.props.route.params.uid;
     const { content } = this.state;
     if (content) {
-      firebase.database().ref(`posts/${user.uid}/${postId}/comments`).push({
-        avatar: user.photoURL,
+      firebase.database().ref(`posts/${userId}/${postId}/comments`).push({
+        uid: user.uid,
         name: user.displayName,
         content: content,
       });
@@ -49,15 +49,16 @@ export default class NewsDetailScreen extends React.Component {
   componentDidMount() {
     const itemRef = firebase.database();
     const user = firebase.auth().currentUser;
-    const postId = this.props.route.params.post.id;
-    var ref = itemRef.ref(`posts/${user.uid}/${postId}/comments`);
+    const postId = this.props.route.params.postID;
+    const userId = this.props.route.params.uid;
+    var ref = itemRef.ref(`posts/${userId}/${postId}/comments`);
     ref.on("value", (snapshot) => {
       var items = [];
       snapshot.forEach((doc) => {
         items.push({
           id: doc.key,
           name: doc.val().name,
-          avatar: doc.val().avatar,
+          uid: doc.val().uid,
           content: doc.val().content,
         });
       });
@@ -66,7 +67,6 @@ export default class NewsDetailScreen extends React.Component {
   }
 
   //notification
-  
 
   render() {
     const { route } = this.props;

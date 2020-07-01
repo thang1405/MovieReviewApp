@@ -120,7 +120,6 @@ class SignupScreen extends React.Component {
                 placeholderTextColor={"white"}
                 secureTextEntry={true}
                 returnKeyType="next"
-                secureTextEntry={true}
                 accessibilityLabel="password"
                 onChangeText={this.handlePassword.bind(this)}
                 underlineColorAndroid="transparent"

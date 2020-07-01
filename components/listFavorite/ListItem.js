@@ -60,8 +60,10 @@ export default class listItem extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0b0b0b",
-    padding: 10,
+    backgroundColor: "#111111",
+    paddingLeft: 5,
+    marginLeft:2,
+    marginTop:10
   },
   img: {
     width: 190,

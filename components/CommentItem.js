@@ -3,7 +3,23 @@ import { StyleSheet, View, Image, TouchableOpacity, Text } from 'react-native'
 import { Avatar } from 'react-native-elements'
 import ReadMore from 'react-native-read-more-text'
 import Colors from '@constants/Colors'
+import firebase from "../firebase";
 export default class CommentItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      avatar:''
+    };
+  }
+  componentDidMount=()=>{
+    const { uid } = this.props.CommentItem ;
+    const itemRef = firebase.database();
+    itemRef.ref(`users/${uid}`).once("value").then((snap)=>{
+      this.setState({avatar:snap.val().photoURL});
+    }).catch((err)=>{
+      console.log(err);
+    })
+  }
   render() {
     const { CommentItem } = this.props
     return (
@@ -12,7 +28,7 @@ export default class CommentItem extends React.Component {
           <Avatar
             rounded
             source={{
-              uri: CommentItem.avatar,
+              uri: this.state.avatar,
             }}
             size="small"
           />

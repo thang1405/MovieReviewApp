@@ -21,14 +21,13 @@ export default class ListScreen extends React.Component {
     let user = firebase.auth().currentUser;
     firebase
       .database()
-      .ref("films")
+      .ref(`listFavorite/${user.uid}`)
       .on("value", (snapshot) => {
         var items = [];
         snapshot.forEach((doc) => {
           if (doc.val().isFavorite) {
             items.push({
-              id: doc.key,
-              isFavorite: doc.val().isFavorite,
+              id: doc.key,//imdbId
               comments: doc.comments,
             });
           }

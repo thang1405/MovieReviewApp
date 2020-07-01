@@ -33,7 +33,7 @@ export default class PostDetailScreen extends React.Component {
     const { content } = this.state;
     if (content) {
       firebase.database().ref(`posts/${user.uid}/${postId}/comments`).push({
-        avatar: user.photoURL,
+        uid: user.uid,
         name: user.displayName,
         content: content,
       });
@@ -55,7 +55,7 @@ export default class PostDetailScreen extends React.Component {
         items.push({
           id: doc.key,
           name: doc.val().name,
-          avatar: doc.val().avatar,
+          uid: doc.val().uid,
           content: doc.val().content,
         });
       });
@@ -66,7 +66,7 @@ export default class PostDetailScreen extends React.Component {
   render() {
     const { route } = this.props;
     const user = firebase.auth().currentUser;
-    console.log('---------');
+    console.log("---------");
     console.log(route.params.post);
     return (
       <KeyboardAvoidingView
@@ -94,6 +94,7 @@ export default class PostDetailScreen extends React.Component {
                 </View>
                 {/* num like and comment  */}
               </View>
+              
               <View style={styles.comment_list}>
                 <View style={styles.comment}>
                   <View>

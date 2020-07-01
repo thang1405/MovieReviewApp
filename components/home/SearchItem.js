@@ -39,6 +39,7 @@ export default class SearchItem extends React.Component {
             <Image
               source={{ uri: film.Poster }}
               resizeMode="cover"
+              imageStyle={{ borderRadius: 5 }}
               style={styles.Poster}
             />
             <View style={styles.heading}>
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     height: 120,
     marginBottom: 20,
     flexDirection: "row",
-    backgroundColor: "#445565",
+    backgroundColor: "#0b0b0b",
     borderRadius: 10,
     marginLeft: 10,
     paddingRight: 20,

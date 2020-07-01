@@ -5,58 +5,75 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Button,
-  Image,
-  Keyboard,
+  Text,
 } from "react-native";
 import { connect } from "react-redux";
 import { TextInput } from "react-native-gesture-handler";
-
+import { Avatar } from "react-native-elements";
 import firebase from "../../../firebase";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 
-class PostScreen extends React.Component {
+class SettingScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       hasCameraPermission: null,
       uploadlink: null,
       title: "",
-      content: "",
+      password: "",
     };
   }
   //nhập
-  handleTitle(text) {
-    this.setState({ title: text });
-  }
-  handleContent(text) {
-    this.setState({ content: text });
+  handlePassword(text) {
+    let regexp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    //Tối thiểu tám ký tự, ít nhất một chữ cái và một số:
+    if (text.match(regexp) === null) {
+      this.setState({ error: true });
+    } else {
+      this.setState({ error: false });
+    }
+    this.setState({ password: text });
   }
   handlePress() {
     const user = firebase.auth().currentUser;
-    const { title, content, uploadlink } = this.state;
-    if (title && content && uploadlink) {
-      firebase.database().ref(`posts/${user.uid}`).push({
-        imageUrl: uploadlink,
-        title: title,
-        content: content,
-        author: user.displayName,
-        comments : []
-      }).then((snap)=>{
-        const sessionId = new Date().getTime();
-        firebase.database().ref(`postList`).push({
-          uid:user.uid,
-          postId: snap.key,
-          time : sessionId
+    const { password, uploadlink, error } = this.state;
+    if (uploadlink) {
+      user
+        .updateProfile({
+          photoURL: uploadlink,
+        })
+        .then(function () {
+          firebase.database().ref(`users/${user.uid}`).update({
+            photoURL: uploadlink,
+          });
+          console.log("update profile ok");
+        })
+        .catch(function (error) {
+          console.log("update profile fail");
         });
-      })
-      
+
       this.props.navigation.navigate("Profile");
       this.setState({
         uploadlink: null,
         title: "",
-        content: "",
-      })
+      });
+    } else if (!error) {
+      user
+        .updatePassword(password)
+        .then(function () {})
+        .catch(function (error) {
+          console.log("update pass fail");
+        });
+      this.props.navigation.navigate("Profile");
+      this.setState({
+        uploadlink: null,
+        title: "",
+      });
+    } else {
+      alert("mật khẩu cần ít nhất một chữ cái và một số ");
+      console.log("none");
+      console.log(this.state);
     }
   }
 
@@ -85,16 +102,13 @@ class PostScreen extends React.Component {
       });
 
       if (!image.cancelled) {
-
         this.setState({ uploadlink: "" });
         this.upload(image.uri, image.height, image.width).then(() => {
           this.setState({ uploadprogress: "done" });
-          // get uploaded image firebase link
           this.dispater();
         });
       }
 
-      // if image picker was cancelled
       if (image.cancelled) {
         // alert("you did not select any image");
       }
@@ -103,26 +117,21 @@ class PostScreen extends React.Component {
 
   // image upload function
   upload = async (uri, h, w) => {
-    // function to generate a random int which will be used for image name
     const sessionId = new Date().getTime();
     const imagename = sessionId;
 
     this.setState({ uri: uri, imagecode: imagename });
-    //   getting image uri
+
     const response = await fetch(uri);
 
-    //   convert it to blob
     const blob = await response.blob();
 
-    //   upload to firebase storage
     var ref = firebase
       .storage()
       .ref()
       .child("image/" + imagename);
     return ref.put(blob);
   };
-
-  // used to get the uploaded image firebase uri
   async dispater() {
     const { imagecode } = this.state;
     firebase
@@ -138,62 +147,88 @@ class PostScreen extends React.Component {
   }
 
   render() {
-    
+    const user = firebase.auth().currentUser;
     return (
       <View style={styles.container}>
         {/* image */}
-        <View style={styles.imgPost}>
-          <TouchableOpacity onPress={() => this.pic()} style={styles.flexImage}>
+        <View style={styles.top}></View>
+        <View style={styles.position}>
+          <TouchableOpacity onPress={() => this.pic()} activeOpacity={0.98}>
             {(() => {
               switch (this.state.uploadlink) {
                 case null:
                   return (
-                    <Image
-                      source={require("../../../assets/icon/add.png")}
-                      style={styles.imageAdd}
+                    <View style={{
+                      backgroundColor: "#111111",
+                      width: 152,
+                      height: 152,
+                      borderRadius: 76,
+                      borderWidth: 1,
+                      borderColor: "#fff",
+                    }}>
+                    <Avatar
+                      rounded
+                      source={{ uri: user.photoURL }}
+                      size="xlarge"
                     />
+                    </View>
                   );
                 case "":
                   return (
                     <View
-                      style={{ justifyContent: "center", alignItems: "center" ,padding:150}}
+                      style={{
+                        padding: 55,
+                        backgroundColor: "#111111",
+                        width: 149,
+                        height: 149,
+                        borderRadius: 75,
+                        borderWidth: 1,
+                        borderColor: "#fff",
+                      }}
                     >
-                      <ActivityIndicator animating size={'large'}/>
+                      <ActivityIndicator animating size={"large"} />
                     </View>
                   );
                 default:
                   return (
                     <View>
-                      <Image
+                      <Avatar
+                        rounded
                         source={{ uri: this.state.uploadlink }}
-                        style={styles.imageUpload}
+                        size="xlarge"
                       />
                     </View>
                   );
               }
             })()}
           </TouchableOpacity>
+          <Text style={styles.username}>{user.displayName}</Text>
+          <Text style={styles.email}>Email : {user.email}</Text>
         </View>
         {/* 2 input */}
         <View style={styles.content}>
           <TextInput
             style={styles.textTitle}
-            placeholder={"Title..."}
-            value={this.state.title}
-            onChangeText={this.handleTitle.bind(this)}
+            placeholder={"Enter new Password"}
+            value={this.state.password}
+            secureTextEntry={true}
+            returnKeyType="next"
+            accessibilityLabel="password"
+            onChangeText={this.handlePassword.bind(this)}
           />
           <TextInput
-            style={styles.textCmt}
-            placeholder={"Say something..."}
-            onSubmitEditing={Keyboard.dismiss}
-            multiline={true}
-            value={this.state.content}
-            onChangeText={this.handleContent.bind(this)}
+            style={styles.textTitle}
+            placeholder={"Enter new Password"}
+            value={this.state.password}
+            secureTextEntry={true}
+            returnKeyType="next"
+            accessibilityLabel="password"
+            onChangeText={this.handlePassword.bind(this)}
           />
         </View>
         <View style={styles.button}>
           <Button
-            title={"Post"}
+            title={"Update"}
             style={styles.btnPost}
             color={"#fff"}
             onPress={this.handlePress.bind(this)}
@@ -204,50 +239,30 @@ class PostScreen extends React.Component {
   }
 }
 
-export default connect(null, {})(PostScreen);
+export default connect(null, {})(SettingScreen);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
-    // marginTop:Platform.OS === 'ios' ? 20:0
-  },
-  imgPost: {
-    flex: 5,
-    backgroundColor: "#000",
-    alignItems: "center",
-    // borderBottomLeftRadius:10,
-    // borderBottomRightRadius:10
-  },
-  uploadImg: {
-    color: "#FFFFFF",
-    fontSize: 15,
   },
   content: {
     backgroundColor: "#fff",
     flex: 4,
     marginTop: 10,
-    borderRadius:20
+    // borderRadius:20
   },
   textTitle: {
     marginLeft: 31,
     borderBottomColor: "#E3E3E3",
     marginRight: 31,
-    padding: 5,
+    padding: 10,
     borderBottomWidth: 1,
     height: 40,
     fontSize: 18,
+    marginTop: 10,
   },
-  textCmt: {
-    marginLeft: 31,
-    borderBottomColor: "#E3E3E3",
-    borderBottomWidth: 1,
-    marginRight: 31,
-    padding: 5,
-    height: 100,
-    justifyContent: "flex-start",
-    fontSize: 18,
-  },
+
   button: {
     width: "60%",
     height: 40,
@@ -262,12 +277,23 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#FF001B",
   },
-  imageAdd: {
-    marginTop: 120,
-    marginLeft: 45,
+  top: {
+    height: 150,
+    backgroundColor: "#111111",
   },
-  imageUpload: {
-    width: 414,
-    height: 347,
+  bottom: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+  },
+  position: {
+    alignItems: "center",
+    position: "relative",
+    top: -80,
+  },
+  username: {
+    fontSize: 18,
+  },
+  email: {
+    fontSize: 15,
   },
 });

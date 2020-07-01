@@ -35,6 +35,7 @@ export default class ProfileScreen extends React.Component {
               content: snap.val().content,
               author: snap.val().author,
               comments: snap.comments,
+              uid :doc.val().uid
             });
           });
       });
@@ -47,7 +48,6 @@ export default class ProfileScreen extends React.Component {
     const { postsList } = this.state;
     // console.log(postsList);
     return (
-      <ScrollView>
         <View style={styles.container}>
           <View style={styles.bottom}>
             {/* list post */}
@@ -60,7 +60,7 @@ export default class ProfileScreen extends React.Component {
                     onPress={() => {
                       navigation.navigate({
                         name: "UserPost",
-                        params: { post: item },
+                        params: { post:item,postID:item.id ,uid:item.uid},
                       });
                     }}
                   />
@@ -70,20 +70,18 @@ export default class ProfileScreen extends React.Component {
             </View>
           </View>
         </View>
-      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
-  },
-  top: {
-    height: 120,
+    flex:1,
     backgroundColor: "#111111",
   },
-  bottom: {},
+  bottom: {
+    backgroundColor: "#111111",
+  },
   position: {
     alignItems: "center",
     position: "relative",

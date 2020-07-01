@@ -29,14 +29,14 @@ export default class HomeScreen extends React.Component {
     let user = firebase.auth().currentUser;
     let exists = false ;
     firebase.database().ref(`users/${user.uid}`).on('value',(snap)=>{
-      if(snap.exists){
+      if(snap.exists()){
         console.log("user exists!");
         exists = true;
       }else{
         console.log("users no exists!");
         firebase.database().ref("users").child(`${user.uid}`).set({
           displayName: user.displayName,
-          photoURL: user.photoURL,
+          photoURL: 'https://firebasestorage.googleapis.com/v0/b/rnmovies-c6507.appspot.com/o/image%2F1593534739722?alt=media&token=5bedf272-db34-4b4b-ae2e-57795dabbcb4',
         });
         exists = true;
         console.log('add'+`${user.uid}`);
@@ -44,12 +44,13 @@ export default class HomeScreen extends React.Component {
     });
     firebase.database().ref('films').on('value',(snapshot)=>{
       var items = [];
+      
       snapshot.forEach((doc) => {
         items.push({
-          id: doc.key,
-          isFavorite: doc.val().isFavorite,
-          comments : doc.comments
+          id: doc.key,//key
+          comments : doc.comments //comments list
         });
+        
       });
       this.setState({ homeList: items });
 
@@ -59,30 +60,29 @@ export default class HomeScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     const { homeList } = this.state;
-    console.log('state home');
-    console.log(homeList);
+    // console.log('state home');
+    // console.log(homeList);
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        
         <FlatList
           data={homeList}
           renderItem={({ item }) => (
             <FilmItem
               filmItem={item}
+              // filmItem : id , isFavorite ,comments
               onPress={() => {
                 navigation.navigate({
                   name: "FilmInfo",
                   params: { filmID:item.id},
                   // film : id , isFavorite ,comments
-                  //filmID : id
+                  //filmID : imdbID
                 });
               }}
             />
           )}
           keyExtractor={(item) => `${item.id}`}
         />
-        
-      </View>
       </ScrollView>
     );
   }

@@ -7,33 +7,49 @@ import {
   Text,
   ImageBackground,
 } from "react-native";
-import { MaterialCommunityIcons, Feather, Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "@constants/Colors";
 import axios from "axios";
-
+import firebase from "../../firebase";
 export default class FilmItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       film: {},
       id: props.filmItem.id,
+      isFavorite: false
     };
   }
   componentDidMount() {
+    const { filmItem, onPress } = this.props;
+    let user = firebase.auth().currentUser;
     const apiurl = "http://www.omdbapi.com/?apikey=ab60ee59";
     axios(apiurl + "&i=" + this.state.id).then(({ data }) => {
       let result = data;
       // console.log(result);
       this.setState({ film: result });
+      firebase
+        .database()
+        .ref(`listFavorite/${user.uid}/${filmItem.id}`)
+        .on("value", (snapshot) => {
+          if(snapshot.exists()){
+            this.setState({
+              isFavorite: snapshot.val().isFavorite,
+            });
+          }else{
+            this.setState({
+              isFavorite: false,
+            });
+          }
+        });
     });
+    // console.log(this.state.id);
+    
   }
 
   render() {
-    const { filmItem, onPress } = this.props;
-    const { film, id } = this.state;
-    // film item : id ,isFavorite ,comments
-    // console.log(film);
+    const { onPress } = this.props;
+    const { film ,isFavorite} = this.state; //thông tin từ api
     return (
       <View>
         <TouchableOpacity
@@ -51,9 +67,9 @@ export default class FilmItem extends React.Component {
             >
               <View style={styles.imageIcon}>
                 <AntDesign
-                  name={filmItem.isFavorite ? "heart" : "hearto"}
+                  name={isFavorite ? "heart" : "hearto"}
                   size={24}
-                  color={filmItem.isFavorite ? Colors.red : Colors.white}
+                  color={isFavorite ? Colors.red : Colors.white}
                 />
               </View>
             </ImageBackground>
@@ -117,9 +133,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: "#fff",
   },
-  ratingText:{
+  ratingText: {
     fontSize: 18,
     color: "#fff",
-    justifyContent:'flex-end'
-  }
+    justifyContent: "flex-end",
+  },
 });
